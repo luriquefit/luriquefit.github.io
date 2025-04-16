@@ -1,0 +1,121 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Trade Winds', sans-serif;
+}
+body{
+    color: #000;
+    background: /*#6E00F7*/ #fff;
+}
+html{
+    height: 500vh;
+    scroll-behavior: smooth;
+}
+.container{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  #menu {
+    color: #C7D2FE;
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+  }
+  
+  #menu a {
+    display: block;
+    padding: 0.5rem;
+  }
+  
+  #btn-mobile {
+    display: none;
+  }
+  
+
+header{
+    color: antiquewhite;
+    width: 100%;
+    padding: 40px 4%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: .5s;
+}
+
+header.rolagem{
+    background-color: rgba(0, 0, 0, 0.733);
+    padding: 15px 4%;
+}
+
+header.rolagem a{
+    color: antiquewhite;
+}
+
+header ul{
+    list-style-type: none;
+}
+
+header ul li{
+    display: inline-block;
+    margin: 0 40px;
+}
+
+header ul li a{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+header ul li a:hover{
+    color: rgb(187, 185, 185);
+}
+
+.btn-contato button{
+    width: 120px;
+    height: 40px;
+    border: 0;
+    background-color: #5801c4;
+    color: black;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-contato button:hover{
+    background-color: #31016b;
+}
+
+.banner{
+    height: 100vh;
+    background-image: url('../img/banner.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.banner h1{
+    font-size: 4em;
+    color: #fff;
+}
+
+.banner h1 span{
+    color: #5801c4;
+}
