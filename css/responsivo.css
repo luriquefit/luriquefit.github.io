@@ -61,15 +61,17 @@
     .btn-contato{
         display: none;
     }
-    .banner{
-      background-image: url('../img/bannermbl.png');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-attachment: fixed;
-    }
     .banner h1, span{
         font-size: 35px;
         text-align: center;
     }
+}
+@media (max-width: 326px){
+  .banner{
+    background-image: url('../img/bannermbl.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
 }
