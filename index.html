@@ -1,48 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos css/style.css">
+    <link rel="stylesheet" href="estilos css/responsivo.css">
+
     <title>LuRique FIT</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsivo.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header id="header">
+        <div class="container">
+            <div class="flex">
 
-</head>
-    <body>
-        <header id="header">
-            <div class="container">
-                <div class="flex">
+                <a href="#" class="logo-img" id="logo">
+                    <img src="img/logo.png" alt="logotype">
+                </a>
 
-                    <a href="#" class="logo-img" id="logo">
-                        <img src="img/logo.png" alt="logotype">
-                    </a>
+                <nav id="nav">
+                    <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+                        <span id="hamburger"></span>
+                      </button>
+                    <ul id="menu" role="menu">
+                        <li><a href="#">Ínicio</a></li>
+                        <li><a href="#">Amigos</a></li>
+                        <li><a href="#">Runing</a></li>
+                        <li><a href="#">Treinamento</a></li>
+                    </ul>
+                </nav>
 
-                    <nav id="nav">
-                        <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
-                            <span id="hamburger"></span>
-                          </button>
-                        <ul id="menu" role="menu">
-                            <li><a href="#">Ínicio</a></li>
-                            <li><a href="#">Amigos</a></li>
-                            <li><a href="#">Runing</a></li>
-                            <li><a href="#">Treinamento</a></li>
-                        </ul>
-                    </nav>
+                <div class="btn-contato">
+                    <a href="#"><button>CONTATO</button></a>
+                </div> <!--btn-contato-->
+            </div> <!--flex-->
+        </div> <!--container-->
+    </header>
+    <section class="banner">
+        <h1>Be <span>Runner</span></h1>
+        <h1>Be <span>Unstopable</span></h1>
+    </section>
 
-                    <div class="btn-contato">
-                        <a href="#"><button>CONTATO</button></a>
-                    </div> <!--btn-contato-->
-                </div> <!--flex-->
-            </div> <!--container-->
-        </header>
-        <section class="banner">
-            <h1>Be <span>Runner</span></h1>
-            <h1>Be <span>Unstopable</span></h1>
-        </section>
+    <script src="index.js"></script>
 
-        <script src="index.js"></script>
-    </body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
 </html>

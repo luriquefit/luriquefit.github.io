@@ -1,2 +1,0 @@
-# luriquefit.github.io
-website
