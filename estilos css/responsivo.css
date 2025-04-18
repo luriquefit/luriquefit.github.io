@@ -21,8 +21,12 @@
     }
     #menu a {
       color: white;
-      padding: 1rem 0;
-      margin: 0 1rem;
+      padding: 2px;
+      margin: 0 .2rem;
+      text-decoration: none;
+    }
+    #menu a:hover{
+      color: rgb(88, 88, 88);
     }
     #btn-mobile{
       display: flex;
@@ -67,11 +71,28 @@
         font-size: 35px;
         text-align: center;
     }
+    .wrapper{
+      display: flex;
+      flex-direction: column;
+      padding: 10px 10px;
+    }
+    .wrapper img{
+      width: 80%;
+    }
+    .text-box{
+      margin-bottom: 5px;
+    }
+    .text-box h2{
+      font-size: 25px;
+    }
+    .text-box p{
+      font-size: 10px;
+    }
 }
 @media (max-width: 360px){
   .banner{
     background-image: url('../img/bannermbl.png');
     background-position: center;
-    background-attachment: none;
+    background-attachment: fixed;
   }
 }
