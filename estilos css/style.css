@@ -31,7 +31,6 @@ html{
     color: #C7D2FE;
     display: flex;
     list-style: none;
-    gap: 0.5rem;
   }
   
   #menu a {
