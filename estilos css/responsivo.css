@@ -67,6 +67,11 @@
     .btn-contato{
         display: none;
     }
+    .banner{
+      background-image: url('../img/bannermbl.png');
+      background-position: center;
+      background-size: cover;
+    }
     .banner h1, span{
         font-size: 35px;
         text-align: center;
@@ -85,10 +90,3 @@
       font-size: larger;
     }
   }
-@media (max-width: 360px){
-  .banner{
-    background-image: url('../img/bannermbl.png');
-    background-position: center;
-    background-attachment: none;
-  }
-}
