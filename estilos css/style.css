@@ -118,47 +118,29 @@ header ul li a:hover{
     color: #5801c4;
 }
 
-.wrapper{
+/*Seção Quem Sou?*/
+.services{
+    margin: 40px;
+    color: white;
+    background: #000;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 15%, rgba(88, 1, 196, 1) 53%, rgba(0, 0, 0, 1) 83%);
+}
+.services h2{
+    padding-top: 10px;
+    text-align: center;
+}
+.services-container img{
+    width: 400px;
+    height: 400px;
+    margin: 5px 10px;
+    border: 5px solid #000000b4;
+    border-radius: 20px 100px 100px 100px;
+}
+.services-container .service-box{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
-.wrapper img{
-    width: 620px;
-    height: 520px;
-    margin: 50px;
-    border: 3px solid #fff;
-    border-radius: 10px;
-    margin-right: 15px;
-    
-    float: left;
-}
-.text-box{
-    color: #fff;
-    margin-bottom: 220px;
-    float: right    ;
-}
-
-.text-box h2{
-    font-size: 42px;
-}
-
-.text-box p{
-    font-size: 16px;
-}
-
-.wrapper2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.wrapper2 img{
-    width: 520px;
-    height: 320px;
-    margin: 50px;
-    border: 3px solid #fff;
-    border-radius: 10px;
-    margin-right: 15px;
-    
-    float: left;
+.service-info h4, p{
+    padding: 10px;
 }
