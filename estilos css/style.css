@@ -123,6 +123,9 @@ header ul li a:hover{
     color: white;
     border: 2px solid #5801c4;
 }
+.services h1{
+    text-align: center;
+}
 .services-container img{
     width: 400px;
     height: 400px;
