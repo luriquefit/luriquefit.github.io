@@ -77,9 +77,7 @@
         text-align: center;
     }
     .services-container img{
-      width: 30vh;
-      height: 180px;
-      border-radius: 100px 100px;
+      display: none;
     }
     .services-container .service-box{
       display: flex;
@@ -89,4 +87,8 @@
     .service-info p{
       font-size: larger;
     }
+    .banner-amigos p{
+      font-size: 12px;
+      text-align: center;
+  }
   }
