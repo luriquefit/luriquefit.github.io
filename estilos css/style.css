@@ -225,9 +225,7 @@ header ul li a:hover{
   }
   /* ----- MOBILE (CARROSSEL COM LOOP) ----- */
   @media (max-width: 767px) {
-    .carousel #clone{
-        display: none;
-    }
+    
     .card {
       min-width: 100%;
       flex-shrink: 0;
@@ -267,6 +265,9 @@ header ul li a:hover{
   
   /* ----- DESKTOP (3 CARDS FIXOS SEM LOOP) ----- */
   @media (min-width: 768px) {
+    .carousel #clone{
+        display: none;
+    }
     .carousel {
       flex-wrap: nowrap;
       transform: none !important;
