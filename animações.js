@@ -11,3 +11,11 @@ const myObserver = new IntersectionObserver((entries) =>{
 const elements = document.querySelectorAll ('.hidden')
 
 elements.forEach( (element) => myObserver.observe(element))
+
+
+let count = 0;
+function x(){
+    count++;
+    document.querySelector('#Amigos').style.backgroundPosition=count+"px";
+}
+    setInterval(x, 30)
