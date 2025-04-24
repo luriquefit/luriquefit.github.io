@@ -1,0 +1,85 @@
+:root {
+    --purple:#7c2ae8;
+    --black:#000;
+    --white:#fff;
+  }
+  body,html {
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    background:var(--black);
+    color:var(--white);
+    font-family:"Nunito",sans-serif;
+    overflow-x:hidden;
+    scroll-behavior: smooth;
+  }
+  /* ---------- NAVBAR ---------- */
+  .navbar {
+    background:transparent !important;
+    top: 40px;
+  }
+  .navbar-brand img{
+    height:60px;
+    width:auto;
+    animation:walk 1s steps(3) infinite;
+    cursor:pointer;
+  }
+  @keyframes walk{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(5px)}
+    100%{transform:translateY(0)}
+
+    0%{transform:translateX(0)}
+    50%{transform:translateX(5px)}
+    100%{transform:translateX(0)}
+  }
+  /* ---------- OFFCANVAS MENU ---------- */
+  .offcanvas-start{
+    background:var(--black);
+    width:50% !important;
+  }
+  @media(max-width:992px){
+    .offcanvas-start{width:100% !important;}
+  }
+  .offcanvas a{
+    color:var(--white);
+    font-size:1.25rem;
+    position:relative;
+    text-decoration:none;
+    display:inline-block;
+    margin-bottom:1rem;
+  }
+  .offcanvas a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0;
+    height:3px;
+    background:var(--purple);
+    transition:width .3s ease;
+  }
+  .offcanvas a:hover::after{
+    width:100%;
+  }
+  /* ---------- PURPLE TICKER BAR ---------- */
+  .ticker-wrapper{
+    width:100%;
+    background:var(--purple);
+    overflow:hidden;
+    white-space:nowrap;
+    border-top: 15px solid black;
+  }
+  .ticker-text{
+    display:inline-block;
+    padding:1rem 0;
+    animation:ticker 60s linear infinite;
+    font-weight:700;
+    font-size:1.5rem;
+    letter-spacing:2px;
+  }
+  @keyframes ticker{
+    0%{transform:translateX(0%)}
+    100%{transform:translateX(-100%)}
+  }

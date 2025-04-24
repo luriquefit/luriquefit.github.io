@@ -1,142 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LURIQUEFIT – Desde 2022</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="estilos css/style.css">
-    <link rel="stylesheet" href="estilos css/responsivo.css">
-    <link rel="stylesheet" href="estilos css/animações.css">
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 
-    <title>LuRique FIT</title>
-  </head>
-  <body>
-    <header id="header">
-        <div class="container">
-            <div class="flex">
+  <link rel="stylesheet" href="css/estilo.css">
 
-                <a href="#inicio" class="logo-img" id="logo">
-                    <img src="img/logo.png" alt="logotype">
-                </a>
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
 
-                <nav id="nav">
-                    <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
-                        <span id="hamburger"></span>
-                      </button>
-                    <ul id="menu" role="menu">
-                        <li><a href="#inicio">Ínicio</a></li>
-                        <li><a href="#services">Sobre</a></li>
-                        <li><a href="#Amigos">Amigos</a></li>
-                        <li><a href="#planos">Planos</a></li>
-                    </ul>
-                </nav>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar fixed-top px-3">
+    <a class="navbar-brand" data-bs-toggle="offcanvas" href="#mainMenu" role="button" aria-controls="mainMenu">
+      <img src="img/1-removebg-preview.png" alt="Heart Mascot" />
+    </a>
+  </nav>
 
-                <div class="btn-contato">
-                    <a href="#"><button>CONTATO</button></a>
-                </div> <!--btn-contato-->
-            </div> <!--flex-->
-        </div> <!--container-->
-    </header>
-    <section class="banner" id="inicio">
-        <h1>BE <span>RUNNER</span></h1>
-        <h1>BE <span>UNSTOPABLE</span></h1>
-    </section>
+  <!-- OFFCANVAS MENU -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="mainMenu">
+    <div class="offcanvas-header border-bottom border-secondary">
+      <h5 class="offcanvas-title">Menu</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column pt-4">
+      <a href="#home">Home</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
 
-    <section class="services" id="services">
-        <div class="services-container">
-            <div class="service-box">
-                <img src="img/perfil.png" alt="perfil" class="hidden">
-                <div class="service-info">
-                    <section class="hidden">
-                    <h4>LUIS HENRIQUE</h4>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam sequi at eveniet quisquam? Esse rem repellendus adipisci animi amet officiis, tempore consequuntur error, itaque optio explicabo qui? Voluptatem, aliquid odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur voluptatem iusto reprehenderit tempora at corrupti esse eius incidunt, velit corporis quibusdam voluptas accusamus officiis, eaque nisi quia a, unde totam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus sit sunt dolorum sed consequuntur animi saepe ipsam eligendi molestiae nisi ab, sint distinctio quo aut exercitationem tempora fugiat fuga veritatis.</p>
-                </section>  
-                </div>
-            </div> 
-        </div>
-    </section>
+  <!-- PURPLE TICKER BAR -->
+  <div class="ticker-wrapper">
+    <span class="ticker-text">• LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022 • LURIQUEFIT • DESDE 2022</span>
+  </div>
 
-    <section class="banner-amigos" id="Amigos">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil laborum, aperiam possimus, adipisci repellendus mollitia aliquam corrupti tenetur vero iusto non recusandae distinctio magni sunt. Culpa est fugiat ipsum aperiam?</p>
-    </section>
-        <section id="planos"></section>
-        <section class="planos">
-            <h1>PLANOS</h1>
-        </section>
-
-        <div class="carousel-container">
-            <button class="carousel-btn prev">‹</button>
-          
-            <div class="carousel-wrapper">
-              <div class="carousel">
-                <!-- CLONE DO ÚLTIMO -->
-                <div class="card" id="clone">
-                    <img width="48" height="48" src="https://img.icons8.com/emoji/48/1st-place-medal-emoji.png" alt="1st-place-medal-emoji"/>
-                  <h1>Avançado</h1>
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id repudiandae itaque odio esse veniam! Quis porro recusandae hic et quidem doloribus nulla rem deleniti cupiditate inventore voluptate, nesciunt modi repudiandae!</p>
-                  <h2>R$33,90</h2>
-                  <button>Saiba mais</button>
-                </div>
-          
-                <!-- ORIGINAIS -->
-                <div class="card">
-                    <img width="48" height="48" src="https://img.icons8.com/emoji/48/3rd-place-medal-emoji.png" alt="3rd-place-medal-emoji"/>
-                  <h1>Básico</h1>
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit sit ea nihil, nesciunt deleniti voluptate illum unde dolore nisi voluptas expedita cum harum? Magnam sed provident accusantium voluptatum officia optio?</p>
-                  <h2>R$33,90</h2>
-                  <button>Saiba mais</button>
-                </div>
-                <div class="card">
-                    <img width="48" height="48" src="https://img.icons8.com/emoji/48/2nd-place-medal-emoji.png" alt="2nd-place-medal-emoji"/>
-                  <h1>Intermediario</h1>
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit sit ea nihil, nesciunt deleniti voluptate illum unde dolore nisi voluptas expedita cum harum? Magnam sed provident accusantium voluptatum officia optio?</p>
-                  <h2>R$33,90</h2>
-                  <button>Saiba mais</button>
-                </div>
-                <div class="card">
-                    <img width="48" height="48" src="https://img.icons8.com/emoji/48/1st-place-medal-emoji.png" alt="1st-place-medal-emoji"/>
-                  <h1>Avançado</h1>
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit sit ea nihil, nesciunt deleniti voluptate illum unde dolore nisi voluptas expedita cum harum? Magnam sed provident accusantium voluptatum officia optio?</p>
-                  <h2>R$33,90</h2>
-                  <button>Saiba mais</button>
-                </div>
-          
-                <!-- CLONE DO PRIMEIRO -->
-                <div class="card" id="clone">
-                    <img width="48" height="48" src="https://img.icons8.com/emoji/48/3rd-place-medal-emoji.png" alt="3rd-place-medal-emoji"/>
-                  <h1>Básico</h1>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quibusdam, repellat provident cumque voluptate obcaecati dolorum maxime corrupti ducimus. Incidunt saepe, exercitationem delectus nihil minima aliquam ex enim reiciendis labore.</p>
-                  <h2>R$33,90</h2>
-                  <button>Saiba mais</button>
-                </div>
-              </div>
-            </div>
-          
-            <button class="carousel-btn next">›</button>
-          </div>
-          <div class="imgretro">
-            <img src="img/logo.png" alt="#">
-          </div>
-          
-
-        <footer class="rodape">
-            <img src="img/logo.png" alt="#">
-            <p>Made by @2025 Pedro Kamoda</p>
-        </footer>
-          
-
-    <script src="index.js"></script>
-    <script src="animações.js"></script>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-  </body>
+    
+</body>
 </html>
