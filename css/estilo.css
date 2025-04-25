@@ -99,16 +99,22 @@
     0%{transform:translateX(0%)}
     100%{transform:translateX(-100%)}
   }
+  @keyframes walk {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+  }
 
   /*Seção Entre em Forma*/
   /* Seção com imagem de fundo */
 .em-forma-bg {
+  border-top: 3px solid #7c2ae8;
   margin-top: 10px;
   background-image: url('../img/BannerEmForma.png'); /* ajuste o caminho se necessário */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 800px;
+  height: 750px;
   overflow: hidden;
   padding: 60px 0;
 }
@@ -134,10 +140,97 @@
   height: auto;
   display: block;
   margin: 0 auto;
+  animation:walk 1s infinite alternate;
 }
 
 
+/* Seção Consultoria */
+.consultoria-section {
+  border-top: 5px solid #7c2ae8;
+  background-color: #1f191d; /* cor de fundo escuro como na imagem */
+  padding: 60px 0;
+  height: 750px;
+}
 
+/* Imagem */
+.img-consultoria {
+  border: 5px solid #7c2ae8;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Título */
+.text-primary-consultoria {
+  color: #7c2ae8; /* cor roxa do título */
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Parágrafo */
+.p-consultoria {
+  color: #fff; /* texto branco */
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+/*Aulas*/
+.aula-section{
+  background-color: #7c2ae8; /* cor de fundo escuro como na imagem */
+  padding: 60px 0;
+  height: 750px;
+}
+.text-primary-aula{
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.img-aula{
+  border: 10px solid #fff;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+}
+.p-aula{
+  color: #fff; /* texto branco */
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+.consultoria-section2 {
+    border-top: 5px solid #7c2ae8;
+    background-color: #fff; /* cor de fundo escuro como na imagem */
+    padding: 60px 0;
+    height: 750px;
+}
+.img-consultoria2 {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+  animation:walk 1s infinite alternate;
+}
+
+/* Título */
+.text-primary-consultoria2 {
+  color: #7c2ae8; /* cor roxa do título */
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Parágrafo */
+.p-consultoria2 {
+  color: #000; /* texto branco */
+  font-size: 22px;
+  line-height: 1.5;
+}
   
  
   
