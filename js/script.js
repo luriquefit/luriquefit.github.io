@@ -1,3 +1,4 @@
+
 // Menu Lateral Interativo
 const heartMenu = document.getElementById('heartMenu');
 const sideMenu = document.getElementById('sideMenu');
@@ -20,3 +21,4 @@ document.querySelectorAll('.side-menu a').forEach(link => {
         overlay.classList.remove('active');
     });
 });
+
