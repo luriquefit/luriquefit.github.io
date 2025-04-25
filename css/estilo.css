@@ -179,6 +179,7 @@
 
 /*Aulas*/
 .aula-section{
+  border-top: 5px solid #fff;
   background-color: #7c2ae8; /* cor de fundo escuro como na imagem */
   padding: 60px 0;
   height: 750px;
@@ -189,7 +190,7 @@
   margin-bottom: 20px;
 }
 .img-aula{
-  border: 10px solid #fff;
+  border: 8px solid #fff;
   max-width: 100%;
   height: auto;
   border-radius: 5px;
@@ -202,8 +203,9 @@
   line-height: 1.5;
 }
 
+
 .consultoria-section2 {
-    border-top: 5px solid #7c2ae8;
+    border-top: 5px solid #000;
     background-color: #fff; /* cor de fundo escuro como na imagem */
     padding: 60px 0;
     height: 750px;
