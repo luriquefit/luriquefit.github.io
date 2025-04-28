@@ -45,4 +45,9 @@
       max-width: 250px;
       margin-bottom: 20px;
     }
+
+    /*Seção FOTOS*/
+    .foto-polaroid {
+    width: 280px;
+  }
   }

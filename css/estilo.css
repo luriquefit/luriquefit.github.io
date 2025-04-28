@@ -99,11 +99,6 @@
     0%{transform:translateX(0%)}
     100%{transform:translateX(-100%)}
   }
-  @keyframes walk {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0); }
-  }
 
   /*Seção Entre em Forma*/
 .em-forma-bg {
@@ -146,16 +141,17 @@
 /* Seção Consultoria */
 .consultoria-section {
   border-top: 5px solid #7c2ae8;
-  background-color: #1f191d; /* cor de fundo escuro como na imagem */
+  background-image: url('../img/fundomelancia.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 60px 0;
   height: 750px;
 }
 
 /* Imagem */
 .img-consultoria {
-  border: 5px solid #7c2ae8;
   max-width: 100%;
-  height: auto;
+  height: 450px;
   border-radius: 5px;
   display: block;
   margin: 0 auto;
@@ -179,7 +175,7 @@
 /*Aulas*/
 .aula-section{
   border-top: 5px solid #fff;
-  background-color: #7c2ae8; /* cor de fundo escuro como na imagem */
+  background-color: #7c2ae8;
   padding: 60px 0;
   height: 750px;
 }
@@ -233,5 +229,38 @@
   line-height: 1.5;
 }
   
+
+/*Seção FOTOS*/ 
+.bg-color{
+  background-color: #ff66c4;
+  padding-top: 10px;
+}
+.foto-polaroid {
+  background: white;
+  padding: 10px 10px 20px 10px; /* Mais espaçamento embaixo */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  width: 200px;
+  max-width: 80vw;
+  border-radius: 5px;
+}
+
+.foto-polaroid img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 60% 60%;
+}
+
+.titulo-fotos {
+  font-family: 'bright';
+  font-size: 3rem;
+  font-weight: bold;
+  color: #5c00e6;
+  text-align: center;
+}
  
   
