@@ -108,7 +108,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 750px;
+  height: 1000px;
   overflow: hidden;
   padding: 60px 0;
 }
@@ -131,7 +131,7 @@
 /* Imagem do iogurte */
 .img-iogurte {
   max-width: 100%;
-  height: auto;
+  height: 400px;
   display: block;
   margin: 0 auto;
   animation:walk 1s infinite alternate;
@@ -145,13 +145,13 @@
   background-size: cover;
   background-repeat: no-repeat;
   padding: 60px 0;
-  height: 750px;
+  height: 1000px;
 }
 
 /* Imagem */
 .img-consultoria {
   max-width: 100%;
-  height: 450px;
+  height: auto;
   border-radius: 5px;
   display: block;
   margin: 0 auto;
@@ -177,7 +177,7 @@
   border-top: 5px solid #fff;
   background-color: #7c2ae8;
   padding: 60px 0;
-  height: 750px;
+  height: 1000px;
 }
 .text-primary-aula{
   font-size: 50px;
@@ -203,7 +203,7 @@
     border-top: 5px solid #000;
     background-image: url('../img/BannerEmForma.png');
     padding: 60px 0;
-    height: 750px;
+    height: 1000px;
 }
 .img-consultoria2 {
   max-width: 100%;
@@ -231,36 +231,84 @@
   
 
 /*Seção FOTOS*/ 
-.bg-color{
-  background-color: #ff66c4;
-  padding-top: 10px;
+.bg-color {
+  background-color: #ff66cc; /* cor de fundo da seção */
+  padding: 60px 0;
+  position: relative;
 }
+
 .foto-polaroid {
-  background: white;
-  padding: 10px 10px 20px 10px; /* Mais espaçamento embaixo */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  width: 200px;
-  max-width: 80vw;
-  border-radius: 5px;
+  background: #fff;
+  padding: 15px 15px 60px 15px;
+  border: 3px 3px 60px solid #fff;
+  border-bottom: 16px solid #fff; /* borda inferior mais grossa */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 280px;
+}
+.foto-polaroid img{
+  height: 300px;
 }
 
-.foto-polaroid img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
+.carousel-inner {
+  align-items: center;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-size: 60% 60%;
+.carousel-item {
+  transition: transform 0.6s ease;
+  text-align: center;
+}
+
+/* Boneco */
+.boneco-container {
+  position: absolute;
+  top: 0px;
+  right: 5%;
+  z-index: 2;
+  pointer-events: none; /* permite clicar no carrossel normalmente */
+}
+
+.boneco-iogurte {
+  width: 280px;
+  max-width: 40vw;
 }
 
 .titulo-fotos {
-  font-family: 'bright';
-  font-size: 3rem;
+  color: #7c2ae8;
+  font-family: bright;
+  font-size: 5rem;
   font-weight: bold;
-  color: #5c00e6;
+}
+  
+.qmsou {
+  margin-top: 0 auto;
+    border-top: 5px solid #211d1d;
+    background-image: url('../img/BannerEmForma.png');
+    padding: 60px 0;
+    height: 1000px;
+}
+.img-qmsou {
+  max-width: 80%;
+  height: auto;
+  background: #211d1d;
+  padding: 15px 15px 60px 15px;
+  border: 3px 3px 60px solid #211d1d;
+  border-bottom: 16px solid #211d1d;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: rotate(10deg);
+}
+/* Título */
+.text-primary-qmsou {
+  color: #3c3333;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
   text-align: center;
 }
- 
-  
+
+/* Parágrafo */
+.p-qmsou {
+  color: #3c3333;
+  font-size: 22px;
+  line-height: 1.5;
+}
+
