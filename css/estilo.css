@@ -75,68 +75,49 @@
     background-position: center;
     background-size: cover;
     width: 100%;
-    height: 90vh;
+    height: 60vh;
     top: 50%;
     left: 50%;
   } 
+
+  .bannerlu{
+    border-top: 10px solid #7c2ae8;
+    background-image: url('..//img/bannerlu.png');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 70vh;
+  }
+
   /* ---------- PURPLE TICKER BAR ---------- */
   .ticker-wrapper{
     width:100%;
-    background:var(--purple);
+    background: #8c52ff;
     overflow:hidden;
     white-space:nowrap;
-    border-top: 15px solid black;
+    border-top: 5px solid #fff;
   }
   .ticker-text{
-    display:inline-block;
+    display:flex;
+    flex-direction: row;
     padding:1rem 0;
-    animation:ticker 60s linear infinite;
+    animation:ticker 15s linear infinite;
     font-weight:700;
     font-size:1.5rem;
     letter-spacing:2px;
+  }
+  .ticker-text img{
+    width: 100%;
+    height: 30px;
   }
   @keyframes ticker{
     0%{transform:translateX(0%)}
     100%{transform:translateX(-100%)}
   }
 
-  /*Seção Entre em Forma*/
-.em-forma-bg {
-  border-top: 3px solid #7c2ae8;
-  margin-top: 10px;
-  background-image: url('../img/BannerEmForma.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 1000px;
-  overflow: hidden;
-  padding: 60px 0;
+.imgsection{
+  background-color: #8c52ff;
 }
-
-/* Título principal */
-.text-primary-emforma {
-  color: #7c2ae8;
-  font-size: 60px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-/* Parágrafo */
-.p-emforma {
-  font-size: 24px;
-  color: #000;
-  line-height: 1.5;
-}
-
-/* Imagem do iogurte */
-.img-iogurte {
-  max-width: 100%;
-  height: 400px;
-  display: block;
-  margin: 0 auto;
-  animation:walk 1s infinite alternate;
-}
-
 
 /* Seção Consultoria */
 .consultoria-section {

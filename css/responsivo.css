@@ -62,4 +62,13 @@
     top: -40px;
     right: 10px;
   }
+  .cereal-img {
+    width: 35vw;
+  }
+  }
+
+  @media (min-width: 769px) {
+    .cereal-img {
+      width: 45vw;
+    }
   }
