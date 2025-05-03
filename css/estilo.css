@@ -1,128 +1,133 @@
 :root {
-    --purple:#7c2ae8;
-    --black:#000;
-    --white:#fff;
-  }
-  body,html {
-    margin:0;
-    padding:0;
-    width:100%;
-    height:100%;
-    background:var(--black);
-    color:var(--white);
-    font-family:"Nunito",sans-serif;
-    overflow-x:hidden;
-    scroll-behavior: smooth;
-  }
-  @font-face {
-    font-family: bright;
-    src: url(../font/BrightDemo-axVxE.otf);
-  }
-  span, h1{
-    font-family: bright;
-    font-weight: 200;
-  }
-  p{
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400 ;
-  }
-  /* ---------- NAVBAR ---------- */
-  .navbar {
-    background:transparent !important;
-    top: 40px;
-  }
-  .navbar h1{
-    color: #fff;
-    font-size: 25px;
-  }
-  .navbar-brand img{
-    width: 50px;
-    transition: transform 0.6s ease;
-    cursor: pointer;
-  }
-  .navbar-brand img:hover{
-    transform: rotate(360deg)
-  }
-  /* ---------- OFFCANVAS MENU ---------- */
-  .offcanvas-start{
-    background:var(--black);
-    width:50% !important;
-  }
-  .offcanvas a{
-    color:var(--white);
-    font-size:1.25rem;
-    position:relative;
-    text-decoration:none;
-    display:inline-block;
-    margin-bottom:1rem;
-  }
-  .offcanvas a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-4px;
-    width:0;
-    height:3px;
-    background:var(--purple);
-    transition:width .3s ease;
-  }
-  .offcanvas a:hover::after{
-    width:100%;
-  }
-  /*Imagem do Logo no inicio*/
-  .logo-inicio{
-    background-image: url('..//img/bannerlogo.png');
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 60vh;
-    top: 50%;
-    left: 50%;
-  } 
+  --purple: #7c2ae8;
+  --black: #000;
+  --white: #fff;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--black);
+  color: var(--white);
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+@font-face {
+  font-family: bright;
+  src: url(../font/BrightDemo-axVxE.otf);
+}
+span,
+h1 {
+  font-family: bright;
+  font-weight: 200;
+}
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+/* ---------- NAVBAR ---------- */
+.navbar {
+  background: transparent !important;
+  top: 40px;
+}
+.navbar h1 {
+  color: #fff;
+  font-size: 25px;
+}
+.navbar-brand img {
+  width: 50px;
+  transition: transform 0.6s ease;
+  cursor: pointer;
+}
+.navbar-brand img:hover {
+  transform: rotate(360deg);
+}
+/* ---------- OFFCANVAS MENU ---------- */
+.offcanvas-start {
+  background: var(--black);
+  width: 50% !important;
+}
+.offcanvas a {
+  color: var(--white);
+  font-size: 1.25rem;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.offcanvas a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 3px;
+  background: var(--purple);
+  transition: width 0.3s ease;
+}
+.offcanvas a:hover::after {
+  width: 100%;
+}
+/*Imagem do Logo no inicio*/
+.logo-inicio {
+  background-image: url("..//img/bannerlogo.png");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 60vh;
+  top: 50%;
+  left: 50%;
+}
 
-  .bannerlu{
-    border-top: 10px solid #7c2ae8;
-    background-image: url('..//img/bannerlu.png');
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 70vh;
-  }
+.bannerlu {
+  border-top: 10px solid #7c2ae8;
+  background-image: url("..//img/bannerlu.png");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 70vh;
+}
 
-  /* ---------- PURPLE TICKER BAR ---------- */
-  .ticker-wrapper{
-    width:100%;
-    background: #8c52ff;
-    overflow:hidden;
-    white-space:nowrap;
-    border-top: 5px solid #fff;
+/* ---------- PURPLE TICKER BAR ---------- */
+.ticker-wrapper {
+  width: 100%;
+  background: #8c52ff;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-text {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 0;
+  animation: ticker 15s linear infinite;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+.ticker-text img {
+  width: 100%;
+  height: 30px;
+}
+@keyframes ticker {
+  0% {
+    transform: translateX(0%);
   }
-  .ticker-text{
-    display:flex;
-    flex-direction: row;
-    padding:1rem 0;
-    animation:ticker 15s linear infinite;
-    font-weight:700;
-    font-size:1.5rem;
-    letter-spacing:2px;
+  100% {
+    transform: translateX(-100%);
   }
-  .ticker-text img{
-    width: 100%;
-    height: 30px;
-  }
-  @keyframes ticker{
-    0%{transform:translateX(0%)}
-    100%{transform:translateX(-100%)}
-  }
+}
 
-.imgsection{
+.imgsection {
   background-color: #8c52ff;
 }
 
 /* Seção Consultoria */
 .consultoria-section {
   border-top: 5px solid #7c2ae8;
-  background-image: url('../img/fundomelancia.png');
+  background-image: url("../img/fundomelancia.png");
   background-size: cover;
   background-repeat: no-repeat;
   padding: 60px 0;
@@ -154,18 +159,17 @@
 }
 
 /*Aulas*/
-.aula-section{
-  border-top: 5px solid #fff;
-  background-color: #7c2ae8;
+.aula-section {
+  background-color: #8c52ff;
   padding: 60px 0;
   height: 1000px;
 }
-.text-primary-aula{
+.text-primary-aula {
   font-size: 50px;
   font-weight: bold;
   margin-bottom: 20px;
 }
-.img-aula{
+.img-aula {
   border: 8px solid #fff;
   max-width: 100%;
   height: auto;
@@ -173,18 +177,17 @@
   display: block;
   margin: 0 auto;
 }
-.p-aula{
+.p-aula {
   color: #fff; /* texto branco */
   font-size: 22px;
   line-height: 1.5;
 }
 
-
 .consultoria-section2 {
-    border-top: 5px solid #000;
-    background-image: url('../img/BannerEmForma.png');
-    padding: 60px 0;
-    height: 1000px;
+  border-top: 5px solid #000;
+  background-image: url("../img/BannerEmForma.png");
+  padding: 60px 0;
+  height: 1000px;
 }
 .img-consultoria2 {
   max-width: 100%;
@@ -192,7 +195,7 @@
   border-radius: 5px;
   display: block;
   margin: 0 auto;
-  animation:walk 1s infinite alternate;
+  animation: walk 1s infinite alternate;
 }
 
 /* Título */
@@ -209,9 +212,8 @@
   font-size: 22px;
   line-height: 1.5;
 }
-  
 
-/*Seção FOTOS*/ 
+/*Seção FOTOS*/
 .bg-color {
   background-color: #ff66cc; /* cor de fundo da seção */
   padding: 60px 0;
@@ -226,7 +228,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   width: 280px;
 }
-.foto-polaroid img{
+.foto-polaroid img {
   height: 300px;
 }
 
@@ -245,7 +247,7 @@
   top: 0px;
   right: 5%;
   z-index: 2;
-  pointer-events: none; /* permite clicar no carrossel normalmente */
+  pointer-events: none;
 }
 
 .boneco-iogurte {
@@ -259,17 +261,18 @@
   font-size: 5rem;
   font-weight: bold;
 }
-  
+
 .qmsou {
   margin-top: 0 auto;
-    border-top: 5px solid #211d1d;
-    background-image: url('../img/BannerEmForma.png');
-    padding: 60px 0;
-    height: 1000px;
+  border-top: 5px solid #211d1d;
+  background-image: url("../img/BannerEmForma.png");
+  padding: 60px 0;
+  height: 1000px;
 }
 .img-qmsou {
-  max-width: 80%;
+  max-width: 70%;
   height: auto;
+  margin: 60px;
   background: #211d1d;
   padding: 15px 15px 60px 15px;
   border: 3px 3px 60px solid #211d1d;
@@ -292,4 +295,3 @@
   font-size: 22px;
   line-height: 1.5;
 }
-
