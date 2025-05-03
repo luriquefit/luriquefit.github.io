@@ -1,57 +1,18 @@
-
-
-@media(max-width:992px){
-    .offcanvas-start{width:100% !important;}
+@media (max-width: 992px) {
+  .offcanvas-start {
+    width: 100% !important;
   }
+}
 @media (max-width: 768px) {
-    .em-forma-bg {
-      padding: 40px 0;
-      background-position: center top;
-      height: 800px;
-    }
-  
-    .text-primary-emforma {
-      font-size: 34px;
-      text-align: center;
-      padding: 0 10px;
-    }
-  
-    .p-emforma {
-      font-size: 16px;
-      text-align: center;
-      padding: 0 15px;
-    }
-  
-    .img-iogurte {
-      max-width: 220px;
-      margin-top: 20px;
-    }
-    .consultoria-section {
-      padding: 40px 0;
-    }
-  
-    .text-primary-consultoria {
-      font-size: 30px;
-      text-align: center;
-    }
-  
-    .p-consultoria {
-      font-size: 16px;
-      text-align: center;
-      padding: 0 10px;
-    }
-  
-    .img-consultoria {
-      max-width: 250px;
-      margin-bottom: 20px;
-      height: 20px;
-    }
-
-    /*Seção FOTOS*/
-    .foto-polaroid {
+  .text-primary-aula,
+  .p-aula {
+    font-size: 20px;
+  }
+  /*Seção FOTOS*/
+  .foto-polaroid {
     width: 280px;
   }
-  .titulo-fotos{
+  .titulo-fotos {
     text-align: left;
     padding-left: 5px;
   }
@@ -65,10 +26,10 @@
   .cereal-img {
     width: 35vw;
   }
-  }
+}
 
-  @media (min-width: 769px) {
-    .cereal-img {
-      width: 45vw;
-    }
+@media (min-width: 769px) {
+  .cereal-img {
+    width: 45vw;
   }
+}

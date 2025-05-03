@@ -124,45 +124,11 @@ p {
   background-color: #8c52ff;
 }
 
-/* Seção Consultoria */
-.consultoria-section {
-  border-top: 5px solid #7c2ae8;
-  background-image: url("../img/fundomelancia.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 60px 0;
-  height: 1000px;
-}
-
-/* Imagem */
-.img-consultoria {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Título */
-.text-primary-consultoria {
-  color: #7c2ae8; /* cor roxa do título */
-  font-size: 50px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-/* Parágrafo */
-.p-consultoria {
-  color: #fff; /* texto branco */
-  font-size: 22px;
-  line-height: 1.5;
-}
-
 /*Aulas*/
 .aula-section {
   background-color: #8c52ff;
   padding: 60px 0;
-  height: 1000px;
+  height: auto;
 }
 .text-primary-aula {
   font-size: 50px;
