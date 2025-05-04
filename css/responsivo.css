@@ -2,6 +2,9 @@
   .offcanvas-start {
     width: 100% !important;
   }
+  .bannerlu {
+    background-image: url("../img/bannermb.png");
+  }
 }
 @media (max-width: 768px) {
   .text-primary-aula,

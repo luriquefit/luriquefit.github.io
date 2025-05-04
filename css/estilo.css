@@ -82,13 +82,18 @@ p {
   left: 50%;
 }
 
-.bannerlu {
+.bg-responsive {
   border-top: 10px solid #7c2ae8;
-  background-image: url("..//img/bannerlu.png");
-  background-position: center;
+  height: 100vh; /* altura total da tela */
+  background-image: url("../img/bannerdesk.png");
   background-size: cover;
-  width: 100%;
-  height: 70vh;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (max-width: 767.98px) {
+  .bg-responsive {
+    background-image: url("../img/bannermb.png");
+  }
 }
 
 /* ---------- PURPLE TICKER BAR ---------- */
@@ -136,7 +141,6 @@ p {
   margin-bottom: 20px;
 }
 .img-aula {
-  border: 8px solid #fff;
   max-width: 100%;
   height: auto;
   border-radius: 5px;
@@ -150,10 +154,9 @@ p {
 }
 
 .consultoria-section2 {
-  border-top: 5px solid #000;
-  background-image: url("../img/BannerEmForma.png");
+  background-color: #df3821;
   padding: 60px 0;
-  height: 1000px;
+  height: auto;
 }
 .img-consultoria2 {
   max-width: 100%;
@@ -166,7 +169,7 @@ p {
 
 /* Título */
 .text-primary-consultoria2 {
-  color: #7c2ae8; /* cor roxa do título */
+  color: #fff;
   font-size: 50px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -174,7 +177,7 @@ p {
 
 /* Parágrafo */
 .p-consultoria2 {
-  color: #000; /* texto branco */
+  color: #fff;
   font-size: 22px;
   line-height: 1.5;
 }
