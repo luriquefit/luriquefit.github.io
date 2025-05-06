@@ -133,7 +133,7 @@ p {
 .aula-section {
   background-color: #8c52ff;
   padding: 60px 0;
-  height: 80%;
+  height: auto;
 }
 .text-primary-aula {
   font-size: 50px;
@@ -159,7 +159,7 @@ p {
 .consultoria-section2 {
   background-color: #df3821;
   padding: 60px 0;
-  height: 80%;
+  height: auto;
 }
 .img-consultoria2 {
   max-width: 100%;
@@ -188,7 +188,7 @@ p {
 .consultoria-section3 {
   background-color: #f4e038;
   padding: 60px 0;
-  height: 80%;
+  height: auto;
 }
 .img-consultoria3 {
   max-width: 100%;
@@ -216,7 +216,7 @@ p {
 .consultoria-section4 {
   background-color: #fde7c9;
   padding: 60px 0;
-  height: 80%;
+  height: auto;
 }
 
 /*Seção FOTOS*/
@@ -275,7 +275,7 @@ p {
   border-top: 5px solid #211d1d;
   background-image: url("../img/BannerEmForma.png");
   padding: 60px 0;
-  height: 80%;
+  height: 1000px;
 }
 .img-qmsou {
   max-width: 80%;
@@ -294,7 +294,7 @@ p {
   font-family: bright;
   rotate: 10deg;
   position: absolute;
-  top: 460px;
+  top: 450px;
   right: 35px;
 }
 /* Título */
@@ -316,7 +316,7 @@ p {
 .consultoria-section0 {
   background-color: #f08c2b;
   padding: 60px 0;
-  height: 80%;
+  height: auto;
 }
 .img-consultoria0 {
   max-width: 100%;

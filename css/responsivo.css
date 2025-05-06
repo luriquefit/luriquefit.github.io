@@ -29,6 +29,15 @@
   .cereal-img {
     width: 35vw;
   }
+  .arrobalu {
+    color: white;
+    font-size: 50px;
+    font-family: bright;
+    rotate: 10deg;
+    position: absolute;
+    top: 460px;
+    right: 35px;
+  }
 }
 
 @media (min-width: 769px) {
