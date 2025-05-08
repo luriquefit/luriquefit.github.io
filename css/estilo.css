@@ -160,7 +160,6 @@ p {
   background-image: url("../img/banner_melancia.png");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
 
   padding: 60px 0;
   height: 800px;
@@ -193,7 +192,6 @@ p {
   background-image: url("../img/banner_cereal.png");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
 
   padding: 60px 0;
   height: 800px;
@@ -225,7 +223,6 @@ p {
   background-image: url("../img/banner_sanduba.png");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
 
   padding: 60px 0;
   height: 800px;
