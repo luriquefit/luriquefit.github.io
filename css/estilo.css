@@ -157,7 +157,11 @@ p {
 }
 
 .consultoria-section2 {
-  background-color: #df3821;
+  background-image: url("../img/banner_melancia.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
   padding: 60px 0;
   height: 800px;
 }
@@ -186,7 +190,11 @@ p {
 }
 
 .consultoria-section3 {
-  background-color: #f4e038;
+  background-image: url("../img/banner_cereal.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
   padding: 60px 0;
   height: 800px;
 }
@@ -214,7 +222,11 @@ p {
   line-height: 1.5;
 }
 .consultoria-section4 {
-  background-color: #fde7c9;
+  background-image: url("../img/banner_sanduba.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
   padding: 60px 0;
   height: 800px;
 }
