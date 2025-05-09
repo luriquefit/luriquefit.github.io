@@ -17,16 +17,13 @@ html {
 }
 @font-face {
   font-family: bright;
-  src: url(../font/BrightDemo-axVxE.otf);
+  src: url(../font/ArtisualDecoRegular_PERSONAL_USE_ONLY.otf);
 }
 span,
-h1 {
+h1,
+p {
   font-family: bright;
   font-weight: 200;
-}
-p {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
 }
 /* ---------- NAVBAR ---------- */
 .navbar {
@@ -52,6 +49,7 @@ p {
 }
 .offcanvas a {
   color: var(--white);
+  font-family: bright;
   font-size: 1.25rem;
   position: relative;
   text-decoration: none;
@@ -146,9 +144,7 @@ p {
   border-radius: 5px;
   display: block;
   margin: 0 auto;
-  margin-top: 5px;
-
-  border: 5px solid white;
+  margin-top: 10px;
 }
 .p-aula {
   color: #fff; /* texto branco */
@@ -157,9 +153,7 @@ p {
 }
 
 .consultoria-section2 {
-  background-image: url("../img/banner_melancia.png");
-  background-size: cover;
-  background-position: center;
+  background-color: #df3821;
 
   padding: 60px 0;
   height: 800px;
@@ -189,9 +183,7 @@ p {
 }
 
 .consultoria-section3 {
-  background-image: url("../img/banner_cereal.png");
-  background-size: cover;
-  background-position: center;
+  background-color: #f4e038;
 
   padding: 60px 0;
   height: 800px;
@@ -220,9 +212,7 @@ p {
   line-height: 1.5;
 }
 .consultoria-section4 {
-  background-image: url("../img/banner_sanduba.png");
-  background-size: cover;
-  background-position: center;
+  background-color: #fde7c9;
 
   padding: 60px 0;
   height: 800px;
@@ -299,12 +289,12 @@ p {
 }
 .arrobalu {
   color: white;
-  font-size: 50px;
+  font-size: 40px;
   font-family: bright;
   rotate: 10deg;
   position: absolute;
-  top: 450px;
-  right: 35px;
+  top: 465px;
+  right: 20px;
 }
 /* Título */
 .text-primary-qmsou {
