@@ -7,6 +7,9 @@
   }
 }
 @media (max-width: 768px) {
+  .logo-inicio {
+    height: 30vh;
+  }
   .text-primary-aula,
   .p-aula {
     font-size: 20px;
