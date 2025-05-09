@@ -25,11 +25,11 @@ html {
 }
 span,
 h1 {
-  font-family: bright;
+  font-family: Artisua;
   font-weight: 50;
 }
 p {
-  font-family: artisua;
+  font-family: "montserrat" sans-serif;
 }
 /* ---------- NAVBAR ---------- */
 .navbar {
@@ -81,7 +81,7 @@ p {
   background-position: center;
   background-size: cover;
   width: 100%;
-  height: 30vh;
+  height: 40vh;
 }
 
 .bg-responsive {
