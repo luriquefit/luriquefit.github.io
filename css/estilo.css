@@ -17,13 +17,19 @@ html {
 }
 @font-face {
   font-family: bright;
+  src: url(../font/BrightDemo-axVxE.otf);
+}
+@font-face {
+  font-family: Artisua;
   src: url(../font/ArtisualDecoRegular_PERSONAL_USE_ONLY.otf);
 }
 span,
-h1,
-p {
+h1 {
   font-family: bright;
-  font-weight: 200;
+  font-weight: 50;
+}
+p {
+  font-family: artisua;
 }
 /* ---------- NAVBAR ---------- */
 .navbar {
