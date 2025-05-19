@@ -55,10 +55,8 @@
   <!--Seção das 4 imagens-->
   <section class=" imgsection">
     <div class="flex flex-row flex-nowrap justify-center items-center gap-4">
-      <img src="/img/1.png" alt="Imagem 1" class="w-45 h-40 rounded shadow-lg">
-      <img src="img/2.png" alt="Imagem 2" class="w-45 h-40 rounded shadow-lg">
-      <img src="img/3.png" alt="Imagem 3" class="w-45 h-40  rounded shadow-lg">
-      <img src="/img/4.png" alt="Imagem 4" class="w-45 h-40  rounded shadow-lg">
+      <img src="img/1.png" alt="Imagem 1" class="w-100 h-80 rounded shadow-lg">
+      <img src="img/2.png" alt="Imagem 2" class="w-100 h-80 rounded shadow-lg">
     </div>
   </section>
   
@@ -140,7 +138,7 @@
         
         <!-- Imagem -->
         <div class="col-12 col-md-6 mb-4 mb-md-0">
-          <img src="img/cereal-removebg-preview.png" alt="consultoria3" class="img-consultoria3">
+          <img src="img/cerealsombra-removebg-preview (1).png" alt="consultoria3" class="img-consultoria3">
         </div>
   
         <!-- Texto -->
@@ -291,7 +289,7 @@
         
         <!-- Imagem -->
         <div class="col-12 col-md-6 mb-4 mb-md-0">
-          <img src="img/sucolaranjasombra-removebg-preview.png" alt="consultoria0" class="img-consultoria0">
+          <img src="img/sucolaranja-removebg-preview.png" alt="consultoria0" class="img-consultoria0">
         </div>
   
         <!-- Texto -->
@@ -308,6 +306,46 @@
     </div>
   </div>
 
+
+  <section class="w-full py-10 px-4 bg-laranja">
+    <div class="container mx-auto max-w-xl">
+      <h2 class="text-3xl font-bold mb-6 text-center">Calculadora de Metabolismo Basal (TMB)</h2>
+      
+      <div class="space-y-4">
+        <div>
+          <label for="sexo" class="form-label">Sexo:</label>
+          <select id="sexo" class="form-select text-black">
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="idade" class="form-label">Idade (anos):</label>
+          <input type="number" id="idade" class="form-control text-black" required>
+        </div>
+
+        <div>
+          <label for="peso" class="form-label">Peso (kg):</label>
+          <input type="number" id="peso" class="form-control text-black" required>
+        </div>
+
+        <div>
+          <label for="altura" class="form-label">Altura (cm):</label>
+          <input type="number" id="altura" class="form-control text-black" required>
+        </div>
+
+        <button onclick="calcularTMB()" class="btn btn-light w-full font-bold">Calcular TMB</button>
+      </div>
+
+      <!-- Resultado -->
+      <div id="resultado" class="mt-6 text-center text-xl font-semibold leading-relaxed tracking-wide" style="display: none;">
+        <p>Seu metabolismo basal é:</p>
+        <p id="tmb-valor" class="text-white font-extrabold text-2xl"></p>
+        <p>kcal/dia</p>
+      </div>
+    </div>
+  </section>
 
 
   <section class="bg-laranja py-5">
@@ -363,5 +401,6 @@
     <img src="img/dedoesq-removebg-preview.png"Joinha" class="thumb-img">
   </footer>
 
+  <script src="js/tmb.js"></script>
 </body>
 </html>

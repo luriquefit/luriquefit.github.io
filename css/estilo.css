@@ -414,3 +414,23 @@ footer {
     width: 60px;
   }
 }
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animar-resultado {
+  animation: slideFadeIn 0.6s ease-out forwards;
+}
+#resultado {
+  font-family: "Segoe UI", sans-serif;
+  word-break: normal;
+  white-space: nowrap;
+}
