@@ -265,16 +265,16 @@ h2 {
 /* Boneco */
 .boneco-container {
   position: absolute;
-  top: 435px;
-  right: -120px;
+  top: 355px;
+  right: -970px;
   z-index: 2;
   pointer-events: none;
 }
 
 .boneco-iogurte {
-  width: 100%;
+  width: 40%;
   height: auto;
-  rotate: 20deg;
+  rotate: 15deg;
 }
 
 .titulo-fotos {
