@@ -39,11 +39,13 @@
       <a href="#EmForma">Saúde</a>
       <a href="#consul1">Consultoria</a>
       <a href="#aula">Aulas</a>
+      <a href="#calculo" class="btn-link">Saiba seu metabolismo</a>
     </div>
   </div>
 
     <!--Banner inicio com Logo-->
-    <div class="logo-inicio" id="home"></div>
+    <section class="bg-cover bg-center h-[30vh] md:h-[60vh]" style="background-image: url('img/bannerlogo.png');" id="home">
+    </section>
   <!--Banner Luis-->
   <div class="bg-responsive"></div>
 
@@ -53,14 +55,18 @@
   </div>
   
   <!--Seção das 4 imagens-->
-  <section class=" imgsection">
-    <div class="flex flex-row flex-nowrap justify-center items-center gap-4">
-      <img src="img/1.png" alt="Imagem 1" class="w-100 h-80 rounded shadow-lg">
-      <img src="img/2.png" alt="Imagem 2" class="w-100 h-80 rounded shadow-lg">
+  <section class="bg-[#8c52ff] px-0">
+    <div class="overflow-x-auto md:overflow-x-hidden">
+      <div class="flex md:grid md:grid-cols-4 gap-2 min-w-[200px] md:min-w-0">
+        <img src="img/1.png" class="w-1/2 md:w-full h-auto object-cover" alt="Imagem 1">
+        <img src="img/2.png" class="w-1/2 md:w-full h-auto object-cover" alt="Imagem 2">
+        <img src="img/3.png" class="w-1/2 md:w-full h-auto object-cover" alt="Imagem 3">
+        <img src="img/4.png" class="w-1/2 md:w-full h-auto object-cover" alt="Imagem 4">
+      </div>
     </div>
   </section>
   
-<div class="container-fluid aula-section d-flex align-items-center" id="aula">
+<div class="container-fluid aula-section d-flex align-items-center" id="EmForma">
   <div class="container">
     <div class="row align-items-center justify-content-center text-center text-md-start">
       
@@ -86,13 +92,13 @@
 
   
 
-  <div class="container-fluid consultoria-section2 d-flex align-items-center py-5" id="consul2">
+  <div class="container-fluid consultoria-section2 d-flex align-items-center py-5" id="consul1">
     <div class="container">
       <div class="row align-items-center justify-content-center text-center text-md-start">
         
         <!-- Imagem -->
         <div class="col-12 col-md-6 mb-4 mb-md-0">
-          <img src="img/melanciasombra-removebg-preview.png" alt="consultoria2" class="img-consultoria2">
+          <img src="img/melanciasombra.png" alt="consultoria2" class="img-consultoria2">
         </div>
   
         <!-- Texto -->
@@ -138,7 +144,7 @@
         
         <!-- Imagem -->
         <div class="col-12 col-md-6 mb-4 mb-md-0">
-          <img src="img/cerealsombra-removebg-preview (1).png" alt="consultoria3" class="img-consultoria3">
+          <img src="img/cerealsombra.png" alt="consultoria3" class="img-consultoria3">
         </div>
   
         <!-- Texto -->
@@ -161,7 +167,7 @@
         
         <!-- Imagem -->
         <div class="col-12 col-md-6 mb-4 mb-md-0">
-          <img src="img/sandubasombra-removebg-preview.png" alt="consultoria3" class="img-consultoria3">
+          <img src="img/sandubasombra.png" alt="consultoria3" class="img-consultoria3">
         </div>
   
         <!-- Texto -->
@@ -307,7 +313,7 @@
   </div>
 
 
-  <section class="w-full py-10 px-4 bg-laranja">
+  <section class="w-full py-10 px-4 bg-laranja" id="calculo">
     <div class="container mx-auto max-w-xl">
       <h2 class="text-3xl font-bold mb-6 text-center">Calculadora de Metabolismo Basal (TMB)</h2>
       

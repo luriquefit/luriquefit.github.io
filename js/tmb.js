@@ -13,18 +13,19 @@ function calcularTMB() {
   }
 
   let tmb = 0;
+
   if (sexo === "masculino") {
-    tmb = 10 * peso + 6.25 * altura - 5 * idade + 5;
+    // Fórmula Harris-Benedict para homens
+    tmb = 88.362 + 13.397 * peso + 4.799 * altura - 5.677 * idade;
   } else {
-    tmb = 10 * peso + 6.25 * altura - 5 * idade - 161;
+    // Fórmula Harris-Benedict para mulheres
+    tmb = 447.593 + 9.247 * peso + 3.098 * altura - 4.33 * idade;
   }
 
-  // Atualiza apenas o valor, sem afetar o layout
-  valorSpan.textContent = `${tmb.toFixed(2)}`;
+  valorSpan.textContent = tmb.toFixed(2);
 
-  // Garante visibilidade e animação limpa
   resultadoDiv.style.display = "block";
   resultadoDiv.classList.remove("animar-resultado");
-  void resultadoDiv.offsetWidth;
+  void resultadoDiv.offsetWidth; // força reflow
   resultadoDiv.classList.add("animar-resultado");
 }
