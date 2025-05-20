@@ -313,45 +313,50 @@
   </div>
 
 
-  <section class="w-full py-10 px-4 bg-laranja" id="calculo">
-    <div class="container mx-auto max-w-xl">
-      <h2 class="text-3xl font-bold mb-6 text-center">Calculadora de Metabolismo Basal (TMB)</h2>
-      
-      <div class="space-y-4">
-        <div>
-          <label for="sexo" class="form-label">Sexo:</label>
-          <select id="sexo" class="form-select text-black">
-            <option value="masculino">Masculino</option>
-            <option value="feminino">Feminino</option>
-          </select>
-        </div>
+  <div class="bg-[#f08c2b] w-full max-w-md p-6">
+    <h1 class="text-2xl text-center mb-6">Calculadora de TMB</h1>
 
-        <div>
-          <label for="idade" class="form-label">Idade (anos):</label>
-          <input type="number" id="idade" class="form-control text-black" required>
-        </div>
-
-        <div>
-          <label for="peso" class="form-label">Peso (kg):</label>
-          <input type="number" id="peso" class="form-control text-black" required>
-        </div>
-
-        <div>
-          <label for="altura" class="form-label">Altura (cm):</label>
-          <input type="number" id="altura" class="form-control text-black" required>
-        </div>
-
-        <button onclick="calcularTMB()" class="btn btn-light w-full font-bold">Calcular TMB</button>
+    <form id="formTMB" onsubmit="calcularTMB(event)" class="space-y-4">
+      <div>
+        <label for="sexo" class="form-label">Sexo:</label>
+        <select id="sexo" class="form-select text-black" required>
+          <option value="">Selecione</option>
+          <option value="homem">Homem</option>
+          <option value="mulher">Mulher</option>
+        </select>
       </div>
 
-      <!-- Resultado -->
-      <div id="resultado" class="mt-6 text-center text-xl font-semibold leading-relaxed tracking-wide" style="display: none;">
-        <p>Seu metabolismo basal é:</p>
-        <p id="tmb-valor" class="text-white font-extrabold text-2xl"></p>
-        <p>kcal/dia</p>
+      <div>
+        <label for="idade" class="form-label">Idade (anos):</label>
+        <input type="number" id="idade" class="form-control text-black" required>
       </div>
-    </div>
-  </section>
+
+      <div>
+        <label for="peso" class="form-label">Peso (kg):</label>
+        <input type="number" id="peso" class="form-control text-black" required>
+      </div>
+
+      <div>
+        <label for="altura" class="form-label">Altura (cm):</label>
+        <input type="number" id="altura" class="form-control text-black" required>
+      </div>
+
+      <div>
+        <label for="atividade" class="form-label">Atividade Física:</label>
+        <select id="atividade" class="form-select text-black" required>
+          <option value="1.2">Sedentário</option>
+          <option value="1.375">Levemente ativo (1-3x/semana)</option>
+          <option value="1.55">Moderadamente ativo (3-5x/semana)</option>
+          <option value="1.725">Muito ativo (6-7x/semana)</option>
+          <option value="1.9">Extremamente ativo</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-light text-[#f08c2b] font-bold w-full mt-3">Calcular</button>
+    </form>
+
+    <div id="resultado" class="mt-5 text-center text-lg font-semibold opacity-0 transition-opacity duration-700"></div>
+  </div>
 
 
   <section class="bg-laranja py-5">
