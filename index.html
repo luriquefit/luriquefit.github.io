@@ -12,6 +12,10 @@
   <link rel="stylesheet" href="css/estilo.css">
   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Fonts & Icons -->
@@ -21,6 +25,12 @@
 
 </head>
 <body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <img src="img/imgflorofc-removebg-preview.png" alt="Flor carregando" class="loader-img">
+  </div>
+  
   <!-- NAVBAR -->
   <nav class="navbar fixed-top px-3">
     <a class="navbar-brand" data-bs-toggle="offcanvas" href="#mainMenu" role="button" aria-controls="mainMenu">
@@ -39,7 +49,7 @@
       <a href="#EmForma">Saúde</a>
       <a href="#consul1">Consultoria</a>
       <a href="#aula">Aulas</a>
-      <a href="#calculo" class="btn-link">Saiba seu metabolismo</a>
+      <a href="calculator.html" class="btn-link">Saiba seu metabolismo</a>
     </div>
   </div>
 
@@ -312,53 +322,6 @@
     </div>
   </div>
 
-
-  <div class="bg-[#f08c2b] w-full max-w-md p-6">
-    <h1 class="text-2xl text-center mb-6">Calculadora de TMB</h1>
-
-    <form id="formTMB" onsubmit="calcularTMB(event)" class="space-y-4">
-      <div>
-        <label for="sexo" class="form-label">Sexo:</label>
-        <select id="sexo" class="form-select text-black" required>
-          <option value="">Selecione</option>
-          <option value="homem">Homem</option>
-          <option value="mulher">Mulher</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="idade" class="form-label">Idade (anos):</label>
-        <input type="number" id="idade" class="form-control text-black" required>
-      </div>
-
-      <div>
-        <label for="peso" class="form-label">Peso (kg):</label>
-        <input type="number" id="peso" class="form-control text-black" required>
-      </div>
-
-      <div>
-        <label for="altura" class="form-label">Altura (cm):</label>
-        <input type="number" id="altura" class="form-control text-black" required>
-      </div>
-
-      <div>
-        <label for="atividade" class="form-label">Atividade Física:</label>
-        <select id="atividade" class="form-select text-black" required>
-          <option value="1.2">Sedentário</option>
-          <option value="1.375">Levemente ativo (1-3x/semana)</option>
-          <option value="1.55">Moderadamente ativo (3-5x/semana)</option>
-          <option value="1.725">Muito ativo (6-7x/semana)</option>
-          <option value="1.9">Extremamente ativo</option>
-        </select>
-      </div>
-
-      <button type="submit" class="btn btn-light text-[#f08c2b] font-bold w-full mt-3">Calcular</button>
-    </form>
-
-    <div id="resultado" class="mt-5 text-center text-lg font-semibold opacity-0 transition-opacity duration-700"></div>
-  </div>
-
-
   <section class="bg-laranja py-5">
     <div class="container">
       <div class="p-4 rounded bg-amarelo">
@@ -403,6 +366,10 @@
     </div> 
   </div> 
 
+  
+
+  
+
 
 
   <footer class="d-flex justify-content-between align-items-center flex-wrap">
@@ -411,6 +378,17 @@
     </div>
     <img src="img/dedoesq-removebg-preview.png" class="thumb-img">
   </footer>
+
+
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      preloader.classList.add('hide');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 5000); // espera a transição
+    });
+  </script>
 
   <script src="js/tmb.js"></script>
 </body>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+
+    <link rel="stylesheet" href="css/estilo.css" />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f08c2b;
+        font-family: "Montserrat", sans-serif;
+        color: white;
+        padding: 20px;
+      }
+
+      .tv {
+        background-color: #333;
+        border: 10px solid #999;
+        border-radius: 20px;
+        box-shadow: 0 0 20px #000;
+        padding: 20px;
+        text-align: center;
+        max-width: 500px;
+        margin: 20px auto;
+      }
+
+      .tv-screen {
+        background-color: #111;
+        border-radius: 10px;
+        padding: 30px 20px;
+        color: #0f0;
+        font-size: 2em;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .controller {
+        background-color: #ccc;
+        border-radius: 40px;
+        padding: 20px;
+        max-width: 500px;
+        margin: 30px auto;
+        box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3),
+          0 5px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .button-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #8c52ff;
+        border: 2px solid white;
+        margin: 10px auto;
+      }
+
+      .label {
+        font-weight: bold;
+        color: #333;
+      }
+
+      @media (max-width: 768px) {
+        .tv,
+        .controller {
+          margin: 10px;
+        }
+
+        .tv-screen {
+          font-size: 0.65rem;
+          padding: 25px 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- PRELOADER -->
+    <div id="preloader">
+      <img
+        src="img/imgflorofc-removebg-preview.png"
+        alt="Flor carregando"
+        class="loader-img"
+      />
+    </div>
+    <!-- NAVBAR -->
+    <nav class="navbar fixed-top px-3">
+      <a
+        class="navbar-brand"
+        data-bs-toggle="offcanvas"
+        href="#mainMenu"
+        role="button"
+        aria-controls="mainMenu"
+      >
+        <img src="img/imgflorofc-removebg-preview.png" alt="Heart Mascot" />
+      </a>
+    </nav>
+    <!-- OFFCANVAS MENU -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mainMenu">
+      <div class="offcanvas-header border-bottom border-secondary">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column pt-4">
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+
+    <!-- Televisão -->
+    <div class="tv">
+      <h3 class="text-white mb-3">Monitor Metabólico</h3>
+      <div class="tv-screen" id="resultado">Insira os dados no controle!</div>
+    </div>
+
+    <!-- Controle de videogame -->
+    <div class="controller">
+      <h5 class="text-center text-dark mb-3">Controle</h5>
+      <form id="formTMB" class="text-dark">
+        <div class="mb-2">
+          <label for="sexo" class="form-label label">Sexo</label>
+          <select id="sexo" class="form-select">
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <label for="peso" class="form-label label">Peso (kg)</label>
+          <input type="number" id="peso" class="form-control" required />
+        </div>
+        <div class="mb-2">
+          <label for="altura" class="form-label label">Altura (cm)</label>
+          <input type="number" id="altura" class="form-control" required />
+        </div>
+        <div class="mb-2">
+          <label for="idade" class="form-label label">Idade</label>
+          <input type="number" id="idade" class="form-control" required />
+        </div>
+        <div class="mb-2">
+          <label for="atividade" class="form-label label"
+            >Atividade Física</label
+          >
+          <select id="atividade" class="form-select">
+            <option value="1.2">Sedentário</option>
+            <option value="1.375">Levemente ativo</option>
+            <option value="1.55">Moderadamente ativo</option>
+            <option value="1.725">Muito ativo</option>
+            <option value="1.9">Extremamente ativo</option>
+          </select>
+        </div>
+
+        <!-- Botão estilo controle -->
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-dark px-4 py-2">
+            Iniciar Cálculo
+          </button>
+          <div class="button-circle"></div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Script TMB -->
+    <script>
+      document
+        .getElementById("formTMB")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const sexo = document.getElementById("sexo").value;
+          const peso = parseFloat(document.getElementById("peso").value);
+          const altura = parseFloat(document.getElementById("altura").value);
+          const idade = parseInt(document.getElementById("idade").value);
+          const atividade = parseFloat(
+            document.getElementById("atividade").value
+          );
+
+          let tmb = 0;
+
+          if (sexo === "masculino") {
+            tmb = 88.362 + 13.397 * peso + 4.799 * altura - 5.677 * idade;
+          } else {
+            tmb = 447.593 + 9.247 * peso + 3.098 * altura - 4.33 * idade;
+          }
+
+          const tmbFinal = tmb * atividade;
+          const resultadoEl = document.getElementById("resultado");
+          resultadoEl.textContent = `Sua taxa metabólica basal é de ${tmbFinal.toFixed(
+            2
+          )} kcal/dia`;
+
+          // Scroll suave até a TV
+          document.querySelector(".tv").scrollIntoView({ behavior: "smooth" });
+        });
+
+      window.addEventListener("load", () => {
+        const preloader = document.getElementById("preloader");
+        preloader.classList.add("hide");
+        setTimeout(() => {
+          preloader.style.display = "none";
+        }, 5000); // espera a transição
+      });
+    </script>
+  </body>
+</html>
