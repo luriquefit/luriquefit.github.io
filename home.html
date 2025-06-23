@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LuRique FIT - Área do Aluno</title>
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 
   <!-- Bootstrap CSS -->
   <link
@@ -58,8 +59,8 @@
         Bem-vindo, <span id="userNome"></span> 👋
       </h2>
 
-      <h4>🏋️‍♂️ Seu treino:</h4>
-      <p id="treino">Carregando...</p>
+      <h4>🏋️‍♂️ Treino:</h4>
+      <a id="btnTreino" href="#" target="_blank" class="btn btn-primary">Ver meu treino</a>
 
       <h4 class="mt-4">💧 Água consumida hoje (200 ml por copo):</h4>
       <p id="agua">0 copos</p>
@@ -83,78 +84,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   <script src="js/script.js"></script>
   <script src="js/preloader.js"></script>
-  <script>
-    // Config Firebase - substitua com seus dados reais
-    const firebaseConfig = {
-    apiKey: "AIzaSyAE3RAALT8f2A0JG3DOG2X50zEpUIonCq0",
-    authDomain: "luriquefit.firebaseapp.com",
-    projectId: "luriquefit",
-    storageBucket: "luriquefit.firebasestorage.app",
-    messagingSenderId: "1077271243747",
-    appId: "1:1077271243747:web:001ac1a73d54012d548ed6"
-  };
-
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-
-    auth.onAuthStateChanged(user => {
-      if (!user) {
-        window.location.href = "login.html";
-        return;
-      }
-
-      const userRef = db.collection("users").doc(user.uid);
-
-      // Escuta em tempo real atualizações no documento do usuário
-      userRef.onSnapshot(doc => {
-        if (doc.exists) {
-          const dados = doc.data();
-          document.getElementById("userNome").textContent = dados.nome || user.email;
-          document.getElementById("treino").textContent = dados.treino || "Nenhum treino atribuído ainda.";
-          document.getElementById("agua").textContent = `${dados.aguaHoje || 0} copos`;
-        } else {
-          document.getElementById("userNome").textContent = user.email;
-          document.getElementById("treino").textContent = "Usuário sem dados.";
-          document.getElementById("agua").textContent = "0 copos";
-        }
-      });
-    });
-
-    function beberAgua() {
-      const user = auth.currentUser;
-      const userRef = db.collection("users").doc(user.uid);
-
-      userRef.update({
-        aguaHoje: firebase.firestore.FieldValue.increment(1)
-      }).catch(err => {
-        alert("Erro ao atualizar água: " + err.message);
-      });
-    }
-
-    function removerAgua() {
-      const user = auth.currentUser;
-      const userRef = db.collection("users").doc(user.uid);
-
-      userRef.get().then(doc => {
-        if (doc.exists) {
-          const atual = doc.data().aguaHoje || 0;
-          if (atual > 0) {
-            userRef.update({
-              aguaHoje: firebase.firestore.FieldValue.increment(-1)
-            }).catch(err => {
-              alert("Erro ao atualizar água: " + err.message);
-            });
-          }
-        }
-      });
-    }
-
-    function logout() {
-      auth.signOut().then(() => {
-        window.location.href = "login.html";
-      });
-    }
-  </script>
+  <script src="js/home.js"></script>
 </body>
 </html>
