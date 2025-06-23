@@ -79,13 +79,24 @@
           const userData = doc.data();
           const treinoURL = userData.treino;
 
-          if (treinoURL) {
-            document.getElementById("btnTreino").href = treinoURL;
-          } else {
-            document.getElementById("btnTreino").textContent = "Treino não disponível";
-            document.getElementById("btnTreino").classList.remove("btn-primary");
-            document.getElementById("btnTreino").classList.add("btn-secondary");
-          }
+          const btnTreino = document.getElementById("btnTreino");
+
+    if (treinoURL && treinoURL.trim() !== "") {
+  btnTreino.href = treinoURL;
+  btnTreino.classList.remove("btn-secondary");
+  btnTreino.classList.add("btn-primary");
+  btnTreino.textContent = "Ver meu treino";
+  btnTreino.onclick = null;
+} else {
+  btnTreino.href = "#";
+  btnTreino.classList.remove("btn-primary");
+  btnTreino.classList.add("btn-secondary");
+  btnTreino.textContent = "Treino não disponível";
+  btnTreino.onclick = (e) => {
+    e.preventDefault();
+    alert("Seu treino ainda não foi atribuído.");
+  };
+}
         }
       });
   } else {
