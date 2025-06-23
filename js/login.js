@@ -1,12 +1,12 @@
 // Inicialização do Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyAE3RAALT8f2A0JG3DOG2X50zEpUIonCq0",
-    authDomain: "luriquefit.firebaseapp.com",
-    projectId: "luriquefit",
-    storageBucket: "luriquefit.firebasestorage.app",
-    messagingSenderId: "1077271243747",
-    appId: "1:1077271243747:web:001ac1a73d54012d548ed6"
-  };
+  apiKey: "AIzaSyAE3RAALT8f2A0JG3DOG2X50zEpUIonCq0",
+  authDomain: "luriquefit.firebaseapp.com",
+  projectId: "luriquefit",
+  storageBucket: "luriquefit.firebasestorage.app",
+  messagingSenderId: "1077271243747",
+  appId: "1:1077271243747:web:001ac1a73d54012d548ed6",
+};
 
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
@@ -28,7 +28,8 @@ btnLogin.addEventListener("click", () => {
     return;
   }
 
-  auth.signInWithEmailAndPassword(email, senha)
+  auth
+    .signInWithEmailAndPassword(email, senha)
     .then(() => {
       window.location.href = "home.html";
     })
@@ -49,7 +50,8 @@ btnCadastro.addEventListener("click", () => {
     return;
   }
 
-  auth.createUserWithEmailAndPassword(email, senha)
+  auth
+    .createUserWithEmailAndPassword(email, senha)
     .then((userCredential) => {
       const uid = userCredential.user.uid;
       return db.collection("users").doc(uid).set({
@@ -57,7 +59,7 @@ btnCadastro.addEventListener("click", () => {
         email: email,
         role: "user",
         treino: "",
-        aguaHoje: 0
+        aguaHoje: 0,
       });
     })
     .then(() => {

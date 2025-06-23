@@ -22,15 +22,15 @@ document.querySelectorAll(".side-menu a").forEach((link) => {
 });
 
 //Customisar o Login / Cadastrar do Firebase
-firebase.auth().onAuthStateChanged(user => {
-    const linkLogin = document.getElementById("linkLogin");
-    if (user) {
-      // Se estiver logado, mostra "Ver meu treino"
-      linkLogin.textContent = "Ver meu treino";
-      linkLogin.href = "home.html";
-    } else {
-      // Se não estiver logado, mostra "Login / Cadastrar"
-      linkLogin.textContent = "Login / Cadastrar";
-      linkLogin.href = "login.html";
-    }
-  });
+firebase.auth().onAuthStateChanged((user) => {
+  const linkLogin = document.getElementById("linkLogin");
+  if (user) {
+    // Se estiver logado, mostra "Ver meu treino"
+    linkLogin.textContent = "Ver meu treino";
+    linkLogin.href = "home.html";
+  } else {
+    // Se não estiver logado, mostra "Login / Cadastrar"
+    linkLogin.textContent = "Login / Cadastrar";
+    linkLogin.href = "login.html";
+  }
+});
