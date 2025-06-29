@@ -6,7 +6,7 @@ import bannermb from "./assets/bannermb.png";
 import bannerlu from "./assets/bannerlu.png";
 
 function App() {
-  // Exemplo simples para trocar imagem pelo tamanho da tela
+  // Troca de banner responsiva (opcional: use um hook para responsividade real)
   const isDesktop = window.innerWidth >= 768;
   const bannerBg = isDesktop ? bannerlu : bannermb;
 
@@ -16,7 +16,7 @@ function App() {
       <div className="border-b-4 border-purple-800 w-full">
         <img
           src={bannerlogo}
-          alt="#logo"
+          alt="Logo"
           className="w-96 h-96 object-center object-cover mx-auto"
         />
       </div>
