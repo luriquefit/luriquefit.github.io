@@ -26,7 +26,9 @@ function App() {
         style={{
           backgroundImage: `url(${bannerBg})`,
         }}
-      />
+      >
+        {/* Você pode adicionar children aqui se quiser */}
+      </div>
       <Wraper />
       <Hero />
     </div>
