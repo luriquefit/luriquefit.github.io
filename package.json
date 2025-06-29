@@ -1,10 +1,11 @@
 {
   "name": "luriquefit-react-app",
   "private": true,
-  "homepage": "https://seu-usuario.github.io/luriquefit.github.io",
+  "homepage": "https://luriquefit.github.io/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "deploy:userpage": "npm run build && node deploy-userpage.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
