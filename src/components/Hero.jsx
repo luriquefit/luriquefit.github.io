@@ -1,3 +1,5 @@
+import image from "../assets/image.png";
+
 export default function Hero() {
   return (
     <section
@@ -8,7 +10,7 @@ export default function Hero() {
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-start text-center md:text-left gap-y-12 md:gap-y-0 md:gap-20">
           <div className="w-full md:w-1/2 mt-8 md:mt-0">
             <img
-              src="./src/assets/image.png"
+              src={image}
               alt="Aula"
               className="rounded max-w-full mx-auto mr-4"
             />
