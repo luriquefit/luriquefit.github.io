@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar";
 import Wraper from "./components/Wraper";
 import Carousel from "./components/Carousel";
 import bannerlogo from "./assets/bannerlogo.png";
+import PlanosIntr from "./components/Plans";
+import PlansCards from "./components/PlansCards";
 
 function App() {
   return (
@@ -18,6 +20,14 @@ function App() {
       <Carousel />
       <Wraper />
       <Hero />
+      <PlanosIntr />
+      <PlansCards />
+      <Hero />
+      <footer className="w-full bg-black text-white py-6 text-center">
+        <p className="text-sm">
+          © 2025 LuRique FIT. Todos os direitos reservados.
+        </p>
+      </footer>
     </div>
   );
 }
