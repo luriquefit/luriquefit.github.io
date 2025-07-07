@@ -12,14 +12,14 @@ export default function PlansCards() {
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
-      const endValue = window.innerWidth < 768 ? "bottom 0%" : "bottom 80%";
+      const endValue = window.innerWidth < 768 ? "bottom -40%" : "bottom 80%";
 
       tl.current = gsap
         .timeline({
           scrollTrigger: {
             trigger: ".plan",
             scrub: true,
-            //markers: true,
+            markers: true,
             start: "top 100%",
             end: endValue,
           },
@@ -64,7 +64,7 @@ export default function PlansCards() {
 
   return (
     <div
-      className="w-full max-w-7xl flex flex-col md:flex-row justify-center items-stretch gap-8 p-6 plansContent"
+      className="w-full max-w-7xl flex flex-col md:flex-row justify-center items-stretch gap-8 p-6 plansContent mb-10"
       ref={el}
     >
       {/* CARD 1 */}
