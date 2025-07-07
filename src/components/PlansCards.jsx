@@ -19,7 +19,6 @@ export default function PlansCards() {
           scrollTrigger: {
             trigger: ".plan",
             scrub: true,
-            markers: true,
             start: "top 100%",
             end: endValue,
           },
