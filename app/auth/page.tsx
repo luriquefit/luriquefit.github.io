@@ -11,8 +11,6 @@ import Link from "next/link"
 import Image from "next/image"
 import LoadingScreen from "@/components/loading-screen"
 
-const basePath = process.env.NODE_ENV === 'production' ? '/luriquefit.github.io' : '';
-
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true)
   const [showPassword, setShowPassword] = useState(false)
@@ -62,7 +60,7 @@ export default function AuthPage() {
         {isLoading && (
           <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
             <Image
-              src={`${basePath}/images/flor-removebg-preview.png`}
+              src="/images/flor-removebg-preview.png"
               alt="Flor Loading"
               width={64}
               height={64}
@@ -77,7 +75,7 @@ export default function AuthPage() {
         {/* Background */}
         <div className="absolute inset-0">
           <Image
-            src={`${basePath}/placeholder.svg?height=1080&width=1920&text=Fitness Background`}
+            src="/images/fotosection4.jpeg"
             alt="Auth Background"
             fill
             className="object-cover opacity-20"
@@ -86,7 +84,7 @@ export default function AuthPage() {
         </div>
 
         {/* Back Button */}
-        <Link href={basePath || "/"} className="absolute top-6 left-6 z-10">
+        <Link href="/" className="absolute top-6 left-6 z-10">
           <motion.div
             className="flex items-center space-x-2 text-gray-400 hover:text-purple-400 transition-colors duration-300"
             whileHover={{ x: -5 }}
@@ -97,23 +95,17 @@ export default function AuthPage() {
         </Link>
 
         {/* Auth Card */}
-        <motion.div
-          className="w-full max-w-md z-10 mt-24 sm:mt-0" // Adiciona margem no mobile
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <motion.div className="w-full max-w-md z-10" variants={containerVariants} initial="hidden" animate="visible">
           <Card className="bg-gray-900/40 border-gray-800 backdrop-blur-md">
             <CardHeader className="text-center">
               <div className="flex items-center justify-center mb-4">
                 <Image
-              src={`${basePath}/images/flor-removebg-preview.png`}
-              alt="Flor Loading"
-              width={64}
-              height={64}
-              className="animate-spin"
-              priority
-            />
+                  src="/images/flor-removebg-preview.png"
+                  alt="Flor"
+                  width={80}
+                  height={80}
+                  className="rounded-full"
+                />
               </div>
               <CardTitle className="text-2xl font-light text-white">
                 {isLogin ? "Bem-vindo de Volta" : "Junte-se ao Luriquefit"}

@@ -4,9 +4,9 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'LuRiqueFit',
-  description: 'Be greater, Be runner',
-  generator: 'LuRique.app',
+  title: 'Luriquefit',
+  description: 'Created with Luriquefit',
+  generator: 'Luriquefit.app',
 }
 
 export default function RootLayout({

@@ -8,9 +8,6 @@ import { X, Instagram, Twitter, Mail, Phone } from "lucide-react"
 import Image from "next/image"
 import LoadingScreen from "@/components/loading-screen"
 
-// Remova o cálculo de basePath do topo do arquivo
-// const basePath = process.env.NODE_ENV === 'production' ? '/luriquefit.github.io' : '';
-
 export default function LuriquefitInspired() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
@@ -128,18 +125,13 @@ export default function LuriquefitInspired() {
     },
   ]
 
-  // Calcule basePath dentro do componente, usando useMemo para garantir que é igual no SSR e client
-  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/luriquefit.github.io")
-    ? "/luriquefit.github.io"
-    : "";
-
   return (
     <>
       <AnimatePresence>
         {isLoading && (
           <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
             <Image
-              src={`${basePath}/images/flor-removebg-preview.png`}
+              src="/images/flor-removebg-preview.png"
               alt="Flor Loading"
               width={64}
               height={64}
@@ -166,11 +158,11 @@ export default function LuriquefitInspired() {
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
                 <Image
-                  src={`${basePath}/images/flor-removebg-preview.png`}
+                  src="/images/flor-removebg-preview.png"
                   alt="Flower Menu"
                   width={32}
                   height={32}
-                  className="transition-all duration-300"
+                  className="filter  duration-300"
                 />
               </motion.div>
               <span className="text-xs text-gray-400 group-hover:text-white transition-colors duration-300">menu</span>
@@ -207,18 +199,10 @@ export default function LuriquefitInspired() {
                   </motion.button>
 
                   <div className="mt-16 space-y-8">
-                    {/* Corrija os ids dos links removendo acentos */}
-                    {[
-                      { label: "Início", id: "inicio" },
-                      { label: "Sobre", id: "sobre" },
-                      { label: "Benefícios", id: "beneficios" },
-                      { label: "Depoimentos", id: "depoimentos" },
-                      { label: "Preços", id: "precos" },
-                      { label: "Contato", id: "contato" },
-                    ].map((item, i) => (
+                    {["Início", "Sobre", "Benefícios", "Depoimentos", "Preços", "Contato"].map((item, i) => (
                       <motion.a
-                        key={item.label}
-                        href={`#${item.id}`}
+                        key={item}
+                        href={`#${item.toLowerCase()}`}
                         className="block text-2xl text-gray-400 hover:text-white transition-colors duration-300 font-light"
                         variants={menuItemVariants}
                         custom={i}
@@ -227,12 +211,12 @@ export default function LuriquefitInspired() {
                         onClick={toggleMenu}
                         whileHover={{ x: 10 }}
                       >
-                        {item.label}
+                        {item}
                       </motion.a>
                     ))}
 
                     <motion.a
-                      href={`${basePath}/auth`}
+                      href="/auth"
                       className="block text-2xl text-gray-400 hover:text-white transition-colors duration-300 font-light border-t border-gray-800 pt-6"
                       variants={menuItemVariants}
                       custom={6}
@@ -268,7 +252,7 @@ export default function LuriquefitInspired() {
         </AnimatePresence>
 
         {/* Hero Section */}
-        <section id="inicio" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <section id="início" className="min-h-screen flex items-center justify-center relative overflow-hidden">
           <div
             className="absolute inset-0 w-full h-full"
             style={{
@@ -278,7 +262,7 @@ export default function LuriquefitInspired() {
             {/* Mobile image */}
             <div className="block md:hidden w-full h-full absolute inset-0">
               <Image
-                src={`${basePath}/images/bannermb.png`}
+                src="/images/bannermb.png"
                 alt="Hero Mobile Background"
                 fill
                 className="object-cover opacity-30"
@@ -288,7 +272,7 @@ export default function LuriquefitInspired() {
             {/* Desktop image */}
             <div className="hidden md:block w-full h-full absolute inset-0">
               <Image
-                src={`${basePath}/images/bannerdesk.png`}
+                src="/images/bannerdesk.png"
                 alt="Hero Desktop Background"
                 fill
                 className="object-cover opacity-30"
@@ -355,23 +339,20 @@ export default function LuriquefitInspired() {
               viewport={{ amount: 0.3 }}
             >
               <motion.div
-                className="relative group"
+                className="relative"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ amount: 0.3 }}
                 transition={{ duration: 0.8 }}
               >
                 <div className="w-80 h-80 mx-auto relative">
-                  <div className="absolute inset-0rounded-full" />
+                  <div className="absolute inset-0 rounded-full" />
                   <Image
-                    src={`${basePath}/images/fotosection2.jpeg`}
+                    src="/images/fotosection2.jpeg"
                     alt="Lurique Coach"
                     width={320}
                     height={320}
-                    className={`
-                      w-full h-full object-cover rounded-full
-                    `}
-                    style={{}}
+                    className="w-full h-full object-cover rounded-full"
                   />
                 </div>
               </motion.div>
@@ -413,8 +394,7 @@ export default function LuriquefitInspired() {
         </section>
 
         {/* Physical Activity Benefits Section */}
-        {/* Corrija o id para "beneficios" */}
-        <section id="beneficios" className="py-20 px-6 bg-gray-900/20">
+        <section id="benefícios" className="py-20 px-6 bg-gray-900/20">
           <div className="container mx-auto max-w-4xl">
             <motion.div
               className="text-center mb-16"
@@ -585,7 +565,7 @@ export default function LuriquefitInspired() {
                   feedback:
                     "A abordagem da Lurique mudou completamente minha relação com o fitness. A atenção personalizada e métodos sustentáveis fizeram toda a diferença.",
                   rating: 5,
-                  image: `${basePath}/placeholder.svg?height=80&width=80&text=SS`,
+                  image: "/images/fotosection3.jpeg",
                 },
                 {
                   name: "Miguel Santos",
@@ -593,7 +573,7 @@ export default function LuriquefitInspired() {
                   feedback:
                     "Depois de anos de tentativas fracassadas, finalmente encontrei um programa que funciona. A abordagem consciente do fitness é exatamente o que eu precisava.",
                   rating: 5,
-                  image: `${basePath}/placeholder.svg?height=80&width=80&text=MS`,
+                  image: "/images/fotosection3.jpeg",
                 },
                 {
                   name: "Ana Costa",
@@ -601,7 +581,7 @@ export default function LuriquefitInspired() {
                   feedback:
                     "O desafio de 30 dias mudou minha vida. Não apenas fisicamente, mas mentalmente. Me sinto mais forte e confiante do que nunca.",
                   rating: 5,
-                  image: `${basePath}/placeholder.svg?height=80&width=80&text=AC`,
+                  image: "/images/fotosection3.jpeg",
                 },
               ].map((testimonial, index) => (
                 <motion.div
@@ -617,7 +597,7 @@ export default function LuriquefitInspired() {
                       <div className="flex items-center space-x-4 mb-4">
                         <div className="w-12 h-12 rounded-full overflow-hidden">
                           <Image
-                            src={testimonial.image || `${basePath}/placeholder.svg`}
+                            src={testimonial.image || "/placeholder.svg"}
                             alt={testimonial.name}
                             width={48}
                             height={48}
@@ -652,8 +632,7 @@ export default function LuriquefitInspired() {
         </section>
 
         {/* Pricing Section */}
-        {/* Corrija o id para "precos" */}
-        <section id="precos" className="py-20 px-6">
+        <section id="preços" className="py-20 px-6">
           <div className="container mx-auto max-w-4xl">
             <motion.div
               className="text-center mb-16"
@@ -729,7 +708,6 @@ export default function LuriquefitInspired() {
         </section>
 
         {/* Footer */}
-        {/* Corrija o id para "contato" */}
         <footer id="contato" className="py-16 px-6 border-t border-gray-800">
           <div className="container mx-auto max-w-4xl">
             <motion.div
@@ -771,19 +749,14 @@ export default function LuriquefitInspired() {
               <div>
                 <h4 className="text-lg font-light text-white mb-4">Navegar</h4>
                 <div className="space-y-2">
-                  {/* Corrija os links para ids sem acento */}
-                  {[
-                    { label: "Sobre", id: "sobre" },
-                    { label: "Preços", id: "precos" },
-                    { label: "Contato", id: "contato" },
-                  ].map((link) => (
+                  {["Sobre", "Preços", "Contato"].map((link) => (
                     <motion.a
-                      key={link.label}
-                      href={`#${link.id}`}
+                      key={link}
+                      href={`#${link.toLowerCase()}`}
                       className="block text-gray-400 hover:text-purple-400 transition-colors duration-300 font-light"
                       whileHover={{ x: 5 }}
                     >
-                      {link.label}
+                      {link}
                     </motion.a>
                   ))}
                 </div>
