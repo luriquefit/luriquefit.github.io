@@ -30,30 +30,6 @@ export default function AuthPage() {
   const togglePasswordVisibility = () => setShowPassword(!showPassword)
   const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfirmPassword)
 
-  const containerVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  }
-
-  const formVariants = {
-    hidden: { opacity: 0, x: isLogin ? -20 : 20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.4,
-        ease: "easeOut",
-      },
-    },
-  }
-
   return (
     <>
       <AnimatePresence>
@@ -95,7 +71,11 @@ export default function AuthPage() {
         </Link>
 
         {/* Auth Card */}
-        <motion.div className="w-full max-w-md z-10" variants={containerVariants} initial="hidden" animate="visible">
+        <motion.div
+          className="w-full max-w-md z-10"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } }}
+        >
           <Card className="bg-gray-900/40 border-gray-800 backdrop-blur-md">
             <CardHeader className="text-center">
               <div className="flex items-center justify-center mb-4">
@@ -118,9 +98,8 @@ export default function AuthPage() {
             <CardContent>
               <motion.form
                 className="space-y-4"
-                variants={formVariants}
-                initial="hidden"
-                animate="visible"
+                initial={{ opacity: 0, x: isLogin ? -20 : 20 }}
+                animate={{ opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } }}
                 key={isLogin ? "login" : "register"}
               >
                 {!isLogin && (

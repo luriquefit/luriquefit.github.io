@@ -9,106 +9,52 @@ import Image from "next/image"
 import LoadingScreen from "@/components/loading-screen"
 
 export default function LuriquefitInspired() {
+  // Estado para controlar se o menu lateral está aberto ou fechado
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  // Estado para guardar a posição do scroll da página
   const [scrollY, setScrollY] = useState(0)
+  // Estado para mostrar uma tela de loading enquanto a página carrega
   const [isLoading, setIsLoading] = useState(true)
 
+  // Efeito para atualizar o scrollY quando o usuário rolar a página
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // Efeito para simular um tempo de carregamento (loading) de 3 segundos
   useEffect(() => {
-    // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoading(false)
     }, 3000)
-
     return () => clearTimeout(timer)
   }, [])
 
+  // Adicione scroll suave ao HTML (efeito global)
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = "smooth"
+    return () => {
+      document.documentElement.style.scrollBehavior = ""
+    }
+  }, [])
+
+  // Função para abrir/fechar o menu lateral
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
-  const menuVariants = {
-    closed: {
-      x: "-100%",
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 40,
-      },
-    },
-    open: {
-      x: "0%",
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 40,
-      },
-    },
-  }
-
-  const menuItemVariants = {
-    closed: {
-      x: -50,
-      opacity: 0,
-    },
-    open: (i: number) => ({
-      x: 0,
-      opacity: 1,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    }),
-  }
-
-  const heroVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 1.2,
-        ease: "easeOut",
-      },
-    },
-  }
-
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  }
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: i * 0.2,
-        ease: "easeOut",
-      },
-    }),
-  }
-
+  // Lista dos planos de preços que serão exibidos na seção de preços
   const pricingPlans = [
     {
       name: "Básico",
       description: "Perfeito para iniciantes começando sua jornada fitness",
       price: "R$ 89",
       period: "/mês",
-      features: ["2 sessões por semana", "Guia nutricional básico", "Acompanhamento de progresso", "Suporte por email"],
+      features: [
+        "2 sessões por semana",
+        "Guia nutricional básico",
+        "Acompanhamento de progresso",
+        "Suporte por email"
+      ],
     },
     {
       name: "Premium",
@@ -120,13 +66,14 @@ export default function LuriquefitInspired() {
         "Personal trainer",
         "Plano nutricional personalizado",
         "Suporte 24/7",
-        "Conteúdo exclusivo",
+        "Conteúdo exclusivo"
       ],
     },
   ]
 
   return (
     <>
+      {/* Tela de loading que aparece enquanto isLoading for true */}
       <AnimatePresence>
         {isLoading && (
           <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
@@ -143,9 +90,10 @@ export default function LuriquefitInspired() {
       </AnimatePresence>
 
       <div className="min-h-screen bg-black text-white overflow-x-hidden">
-        {/* Navbar */}
+        {/* Navbar - Barra de navegação fixa no topo */}
         <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
           <div className="container mx-auto px-6 py-6 flex items-center justify-between">
+            {/* Botão para abrir o menu lateral */}
             <motion.button
               onClick={toggleMenu}
               className="flex flex-col items-center space-y-1 group cursor-pointer"
@@ -157,6 +105,7 @@ export default function LuriquefitInspired() {
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
+                {/* Logo/flor do menu */}
                 <Image
                   src="/images/flor-removebg-preview.png"
                   alt="Flower Menu"
@@ -170,10 +119,11 @@ export default function LuriquefitInspired() {
           </div>
         </nav>
 
-        {/* Slide-in Menu */}
+        {/* Slide-in Menu - Menu lateral que aparece ao clicar no botão do menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <>
+              {/* Fundo escuro para o menu lateral */}
               <motion.div
                 className="fixed inset-0 bg-black/80 z-40"
                 initial={{ opacity: 0 }}
@@ -181,14 +131,15 @@ export default function LuriquefitInspired() {
                 exit={{ opacity: 0 }}
                 onClick={toggleMenu}
               />
+              {/* Conteúdo do menu lateral */}
               <motion.div
                 className="fixed top-0 left-0 h-full w-80 bg-black z-50 border-r border-gray-800"
-                variants={menuVariants}
-                initial="closed"
-                animate="open"
-                exit="closed"
+                initial={{ x: "-100%" }}
+                animate={{ x: "0%", transition: { type: "spring", stiffness: 400, damping: 40 } }}
+                exit={{ x: "-100%", transition: { type: "spring", stiffness: 400, damping: 40 } }}
               >
                 <div className="p-8">
+                  {/* Botão para fechar o menu lateral */}
                   <motion.button
                     onClick={toggleMenu}
                     className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors"
@@ -198,16 +149,15 @@ export default function LuriquefitInspired() {
                     <X className="h-6 w-6" />
                   </motion.button>
 
+                  {/* Links de navegação do menu lateral */}
                   <div className="mt-16 space-y-8">
                     {["Início", "Sobre", "Benefícios", "Depoimentos", "Preços", "Contato"].map((item, i) => (
                       <motion.a
                         key={item}
                         href={`#${item.toLowerCase()}`}
                         className="block text-2xl text-gray-400 hover:text-white transition-colors duration-300 font-light"
-                        variants={menuItemVariants}
-                        custom={i}
-                        initial="closed"
-                        animate="open"
+                        initial={{ x: -50, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1, transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" } }}
                         onClick={toggleMenu}
                         whileHover={{ x: 10 }}
                       >
@@ -215,13 +165,12 @@ export default function LuriquefitInspired() {
                       </motion.a>
                     ))}
 
+                    {/* Link para página de autenticação */}
                     <motion.a
                       href="/auth"
                       className="block text-2xl text-gray-400 hover:text-white transition-colors duration-300 font-light border-t border-gray-800 pt-6"
-                      variants={menuItemVariants}
-                      custom={6}
-                      initial="closed"
-                      animate="open"
+                      initial={{ x: -50, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1, transition: { delay: 0.6, duration: 0.5, ease: "easeOut" } }}
                       onClick={toggleMenu}
                       whileHover={{ x: 10 }}
                     >
@@ -229,6 +178,7 @@ export default function LuriquefitInspired() {
                     </motion.a>
                   </div>
 
+                  {/* Ícones de redes sociais no menu lateral */}
                   <motion.div
                     className="absolute bottom-8 left-8 flex space-x-4"
                     initial={{ opacity: 0 }}
@@ -251,15 +201,15 @@ export default function LuriquefitInspired() {
           )}
         </AnimatePresence>
 
-        {/* Hero Section */}
-        <section id="início" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        {/* Hero Section - Seção principal de destaque da página */}
+        <section id="inicio" className="min-h-screen flex items-center justify-center relative overflow-hidden">
           <div
             className="absolute inset-0 w-full h-full"
             style={{
               transform: `translateY(${scrollY * 0.3}px)`,
             }}
           >
-            {/* Mobile image */}
+            {/* Imagem de fundo para mobile */}
             <div className="block md:hidden w-full h-full absolute inset-0">
               <Image
                 src="/images/bannermb.png"
@@ -269,7 +219,7 @@ export default function LuriquefitInspired() {
                 priority
               />
             </div>
-            {/* Desktop image */}
+            {/* Imagem de fundo para desktop */}
             <div className="hidden md:block w-full h-full absolute inset-0">
               <Image
                 src="/images/bannerdesk.png"
@@ -279,15 +229,21 @@ export default function LuriquefitInspired() {
                 priority
               />
             </div>
+            {/* Sobreposição preta para dar contraste ao texto */}
             <div className="absolute inset-0 bg-black/60" />
           </div>
 
-          <motion.div className="text-center z-10" variants={heroVariants} initial="hidden" animate="visible">
+          {/* Conteúdo central do hero */}
+          <motion.div
+            className="text-center z-10"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1, transition: { duration: 1.2, ease: "easeOut" } }}
+          >
+            {/* Logo estilizada */}
             <motion.div
               className="mb-8"
               initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
+              animate={{ opacity: 1, scale: 1, transition: { duration: 1, delay: 0.2 } }}
             >
               <div className="text-8xl md:text-9xl font-bold mb-4">
                 <span className="text-white">L</span>
@@ -295,49 +251,52 @@ export default function LuriquefitInspired() {
               </div>
             </motion.div>
 
+            {/* Título principal */}
             <motion.h1
               className="text-4xl md:text-6xl font-light mb-6 tracking-wider"
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.5 } }}
             >
               Luriquefit
             </motion.h1>
 
+            {/* Subtítulo */}
             <motion.p
               className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto font-light"
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.7 } }}
             >
               Transforme seu corpo e mente com coaching fitness personalizado
             </motion.p>
 
+            {/* Botão de chamada para ação */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.9 } }}
             >
-              <Button
-                className="bg-transparent border border-gray-600 text-gray-400 hover:text-white hover:border-purple-400 hover:shadow-lg hover:shadow-purple-400/20 px-8 py-3 text-lg font-light transition-all duration-300"
-                size="lg"
-              >
-                Começar Jornada
-              </Button>
+              {/* Botão agora leva para a seção "sobre" */}
+              <a href="#sobre">
+                <Button
+                  className="bg-transparent border border-gray-600 text-gray-400 hover:text-white hover:border-purple-400 hover:shadow-lg hover:shadow-purple-400/20 px-8 py-3 text-lg font-light transition-all duration-300"
+                  size="lg"
+                >
+                  Começar Jornada
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
         </section>
 
-        {/* About Section */}
+        {/* About Section - Seção sobre o coach */}
         <section id="sobre" className="py-20 px-6">
           <div className="container mx-auto max-w-6xl">
             <motion.div
               className="grid md:grid-cols-2 gap-16 items-center"
-              variants={sectionVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ amount: 0.3 }}
             >
+              {/* Foto do coach */}
               <motion.div
                 className="relative"
                 initial={{ opacity: 0, x: -50 }}
@@ -357,6 +316,7 @@ export default function LuriquefitInspired() {
                 </div>
               </motion.div>
 
+              {/* Texto sobre o coach */}
               <motion.div
                 className="space-y-6"
                 initial={{ opacity: 0, x: 50 }}
@@ -374,6 +334,7 @@ export default function LuriquefitInspired() {
                   Cada jornada é única, e estou aqui para guiá-lo através da sua com atenção personalizada e apoio
                   inabalável.
                 </p>
+                {/* Números de destaque */}
                 <div className="flex items-center space-x-8 pt-6">
                   <div className="text-center">
                     <div className="text-2xl font-light text-white">500+</div>
@@ -393,12 +354,11 @@ export default function LuriquefitInspired() {
           </div>
         </section>
 
-        {/* Physical Activity Benefits Section */}
+        {/* Physical Activity Benefits Section - Benefícios da atividade física */}
         <section id="benefícios" className="py-20 px-6 bg-gray-900/20">
           <div className="container mx-auto max-w-4xl">
             <motion.div
               className="text-center mb-16"
-              variants={sectionVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ amount: 0.2 }}
@@ -411,11 +371,11 @@ export default function LuriquefitInspired() {
 
             <motion.div
               className="space-y-12"
-              variants={sectionVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ amount: 0.3 }}
             >
+              {/* Benefício principal */}
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6">
                   <h3 className="text-2xl font-light text-white mb-4">A Ciência Por Trás do Movimento</h3>
@@ -439,6 +399,7 @@ export default function LuriquefitInspired() {
                 </div>
               </div>
 
+              {/* Outros benefícios em cards */}
               <div className="grid md:grid-cols-3 gap-8 mt-16">
                 {[
                   {
@@ -462,7 +423,6 @@ export default function LuriquefitInspired() {
                   <motion.div
                     key={index}
                     custom={index}
-                    variants={cardVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ amount: 0.3 }}
@@ -478,12 +438,11 @@ export default function LuriquefitInspired() {
           </div>
         </section>
 
-        {/* Running Benefits Section */}
+        {/* Running Benefits Section - Seção sobre os benefícios da corrida */}
         <section className="py-20 px-6">
           <div className="container mx-auto max-w-4xl">
             <motion.div
               className="text-center mb-16"
-              variants={sectionVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ amount: 0.2 }}
@@ -496,11 +455,11 @@ export default function LuriquefitInspired() {
 
             <motion.div
               className="space-y-12"
-              variants={sectionVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ amount: 0.3 }}
             >
+              {/* Benefício principal da corrida */}
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="relative order-2 md:order-1">
                   <div className="w-full h-64 bg-gradient-to-br from-green-600/20 to-blue-600/20 rounded-lg flex items-center justify-center">
@@ -524,6 +483,7 @@ export default function LuriquefitInspired() {
                 </div>
               </div>
 
+              {/* Chamada para ação para começar a correr */}
               <div className="text-center">
                 <motion.div
                   className="inline-block p-8 bg-gradient-to-r from-purple-600/20 to-violet-600/20 rounded-lg border border-gray-700"
@@ -543,12 +503,11 @@ export default function LuriquefitInspired() {
           </div>
         </section>
 
-        {/* Feedback Section */}
+        {/* Feedback Section - Depoimentos dos clientes */}
         <section id="depoimentos" className="py-20 px-6">
           <div className="container mx-auto max-w-6xl">
             <motion.div
               className="text-center mb-16"
-              variants={sectionVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ amount: 0.2 }}
@@ -557,6 +516,7 @@ export default function LuriquefitInspired() {
               <p className="text-gray-400 text-lg font-light">O que nossa comunidade diz sobre sua transformação</p>
             </motion.div>
 
+            {/* Lista de depoimentos */}
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
@@ -587,7 +547,6 @@ export default function LuriquefitInspired() {
                 <motion.div
                   key={index}
                   custom={index}
-                  variants={cardVariants}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ amount: 0.3 }}
@@ -631,12 +590,11 @@ export default function LuriquefitInspired() {
           </div>
         </section>
 
-        {/* Pricing Section */}
-        <section id="preços" className="py-20 px-6">
+        {/* Pricing Section - Seção de planos de preços */}
+        <section id="precos" className="py-20 px-6">
           <div className="container mx-auto max-w-4xl">
             <motion.div
               className="text-center mb-16"
-              variants={sectionVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ amount: 0.2 }}
@@ -645,18 +603,18 @@ export default function LuriquefitInspired() {
               <p className="text-gray-400 text-lg font-light">Escolha seu caminho para a transformação</p>
             </motion.div>
 
+            {/* Cards dos planos de preços */}
             <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
               {pricingPlans.map((plan, index) => (
                 <motion.div
                   key={index}
                   custom={index}
-                  variants={cardVariants}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ amount: 0.3 }}
                 >
                   <Card
-                    className="bg-gray-900/30 border-gray-800 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-400/10 transition-all duration-500 group cursor-pointer h-full backdrop-blur-sm"
+                    className="bg-gray-900/30 border-gray-800 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-400/10 transition-all duration-500 group cursor-pointer h-full backdrop-blur-sm flex flex-col"
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = "scale(1.02)"
                       e.currentTarget.style.boxShadow = "0 20px 40px rgba(139, 92, 246, 0.15)"
@@ -666,6 +624,7 @@ export default function LuriquefitInspired() {
                       e.currentTarget.style.boxShadow = "none"
                     }}
                   >
+                    {/* Cabeçalho do card do plano */}
                     <CardHeader className="text-center pb-4">
                       <CardTitle className="text-2xl font-light text-gray-400 group-hover:text-white transition-colors duration-300 mb-2">
                         {plan.name}
@@ -681,8 +640,9 @@ export default function LuriquefitInspired() {
                       </div>
                     </CardHeader>
 
-                    <CardContent className="px-6">
-                      <ul className="space-y-3">
+                    {/* Lista de benefícios do plano */}
+                    <CardContent className="px-6 flex-1 flex flex-col">
+                      <ul className="space-y-3 flex-1">
                         {plan.features.map((feature, featureIndex) => (
                           <li
                             key={featureIndex}
@@ -694,9 +654,11 @@ export default function LuriquefitInspired() {
                         ))}
                       </ul>
                     </CardContent>
-
-                    <CardFooter className="px-6 pb-6">
-                      <Button className="w-full bg-transparent border border-gray-600 text-gray-400 hover:text-white hover:border-purple-400 hover:shadow-lg hover:shadow-purple-400/20 transition-all duration-300 font-light">
+                    {/* Botão para selecionar o plano, alinhado em todos os cards */}
+                    <CardFooter className="px-6 pb-6 mt-auto min-h-[72px] flex items-end">
+                      <Button
+                        className="w-full py-4 bg-transparent border border-gray-600 text-gray-400 hover:text-white hover:border-purple-400 hover:shadow-lg hover:shadow-purple-400/20 transition-all duration-300 font-light"
+                      >
                         Selecionar Plano
                       </Button>
                     </CardFooter>
@@ -707,16 +669,16 @@ export default function LuriquefitInspired() {
           </div>
         </section>
 
-        {/* Footer */}
+        {/* Footer - Rodapé da página */}
         <footer id="contato" className="py-16 px-6 border-t border-gray-800">
           <div className="container mx-auto max-w-4xl">
             <motion.div
               className="grid md:grid-cols-3 gap-12"
-              variants={sectionVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ amount: 0.2 }}
             >
+              {/* Contato por email e telefone */}
               <div>
                 <h4 className="text-lg font-light text-white mb-4">Conecte-se</h4>
                 <div className="space-y-3">
@@ -731,6 +693,7 @@ export default function LuriquefitInspired() {
                 </div>
               </div>
 
+              {/* Redes sociais */}
               <div>
                 <h4 className="text-lg font-light text-white mb-4">Siga-nos</h4>
                 <div className="flex space-x-4">
@@ -746,6 +709,7 @@ export default function LuriquefitInspired() {
                 </div>
               </div>
 
+              {/* Links de navegação do rodapé */}
               <div>
                 <h4 className="text-lg font-light text-white mb-4">Navegar</h4>
                 <div className="space-y-2">
@@ -763,6 +727,7 @@ export default function LuriquefitInspired() {
               </div>
             </motion.div>
 
+            {/* Copyright */}
             <motion.div
               className="border-t border-gray-800 mt-12 pt-8 text-center"
               initial={{ opacity: 0 }}
