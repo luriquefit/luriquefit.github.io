@@ -11,24 +11,151 @@ import Link from "next/link"
 import Image from "next/image"
 import LoadingScreen from "@/components/loading-screen"
 
+// Firebase imports
+import { initializeApp } from "firebase/app"
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, OAuthProvider } from "firebase/auth"
+import { getFirestore, setDoc, doc } from "firebase/firestore"
+
+// Configuração do Firebase (substitua pelos seus dados)
+const firebaseConfig = {
+  apiKey: "AIzaSyB-V-ZjAvKsK2972BBGyq0fcGcWjwH0pR4",
+  authDomain: "luisriquefit.firebaseapp.com",
+  projectId: "luisriquefit",
+  storageBucket: "luisriquefit.firebasestorage.app",
+  messagingSenderId: "744919749403",
+  appId: "1:744919749403:web:0e0ce88e388a178555b9be",
+  measurementId: "G-NS48N1CMQ4"
+};
+const app = initializeApp(firebaseConfig)
+const auth = getAuth(app)
+const db = getFirestore(app)
+
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true)
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [form, setForm] = useState({ name: "", email: "", password: "", confirmPassword: "" })
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoading(false)
     }, 2000)
-
     return () => clearTimeout(timer)
   }, [])
 
-  const toggleAuthMode = () => setIsLogin(!isLogin)
+  const toggleAuthMode = () => {
+    setIsLogin(!isLogin)
+    setError(null)
+    setForm({ name: "", email: "", password: "", confirmPassword: "" })
+  }
   const togglePasswordVisibility = () => setShowPassword(!showPassword)
   const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfirmPassword)
+
+  // Atualiza os campos do formulário
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.target.id]: e.target.value })
+  }
+
+  // Handler de submit para login e registro com Firebase
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setError(null)
+    if (!form.email || !form.password || (!isLogin && !form.name)) {
+      setError("Preencha todos os campos obrigatórios.")
+      return
+    }
+    if (!isLogin && form.password !== form.confirmPassword) {
+      setError("As senhas não coincidem.")
+      return
+    }
+    setIsLoading(true)
+    try {
+      if (isLogin) {
+        // Login com Firebase
+        await signInWithEmailAndPassword(auth, form.email, form.password)
+        // Redirecionar para página do usuário
+        window.location.href = "/user"
+      } else {
+        // Registro com Firebase
+        const userCredential = await createUserWithEmailAndPassword(auth, form.email, form.password)
+        // Atualiza o nome do usuário
+        if (auth.currentUser && form.name) {
+          await updateProfile(auth.currentUser, { displayName: form.name })
+        }
+        // Cria documento do usuário no Firestore
+        await setDoc(doc(db, "users", userCredential.user.uid), {
+          name: form.name,
+          email: form.email,
+          treinoSemanal: [],
+        })
+        // Redirecionar para página do usuário
+        window.location.href = "/user"
+      }
+    } catch (err: any) {
+      setError(err.message || "Erro ao autenticar.")
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  // Login/cadastro com Google
+  const handleGoogleAuth = async () => {
+    setError(null)
+    setIsLoading(true)
+    try {
+      const provider = new GoogleAuthProvider()
+      const result = await signInWithPopup(auth, provider)
+      // Cria o usuário no Firestore se for novo
+      if (result.user) {
+        const userDocRef = doc(db, "users", result.user.uid)
+        await setDoc(
+          userDocRef,
+          {
+            name: result.user.displayName || "",
+            email: result.user.email || "",
+            treinoSemanal: [],
+          },
+          { merge: true }
+        )
+      }
+      window.location.href = "/user"
+    } catch (err: any) {
+      setError(err.message || "Erro ao autenticar com Google.")
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  // Login/cadastro com Apple
+  const handleAppleAuth = async () => {
+    setError(null)
+    setIsLoading(true)
+    try {
+      const provider = new OAuthProvider("apple.com")
+      const result = await signInWithPopup(auth, provider)
+      // Cria o usuário no Firestore se for novo
+      if (result.user) {
+        const userDocRef = doc(db, "users", result.user.uid)
+        await setDoc(
+          userDocRef,
+          {
+            name: result.user.displayName || "",
+            email: result.user.email || "",
+            treinoSemanal: [],
+          },
+          { merge: true }
+        )
+      }
+      window.location.href = "/user"
+    } catch (err: any) {
+      setError(err.message || "Erro ao autenticar com Apple.")
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <>
@@ -101,6 +228,7 @@ export default function AuthPage() {
                 initial={{ opacity: 0, x: isLogin ? -20 : 20 }}
                 animate={{ opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } }}
                 key={isLogin ? "login" : "register"}
+                onSubmit={handleSubmit}
               >
                 {!isLogin && (
                   <div className="space-y-2">
@@ -112,6 +240,8 @@ export default function AuthPage() {
                       type="text"
                       placeholder="Digite seu nome completo"
                       className="bg-gray-800/50 border-gray-700 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400"
+                      value={form.name}
+                      onChange={handleChange}
                     />
                   </div>
                 )}
@@ -125,6 +255,8 @@ export default function AuthPage() {
                     type="email"
                     placeholder="Digite seu email"
                     className="bg-gray-800/50 border-gray-700 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400"
+                    value={form.email}
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -138,6 +270,8 @@ export default function AuthPage() {
                       type={showPassword ? "text" : "password"}
                       placeholder="Digite sua senha"
                       className="bg-gray-800/50 border-gray-700 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400 pr-10"
+                      value={form.password}
+                      onChange={handleChange}
                     />
                     <button
                       type="button"
@@ -160,6 +294,8 @@ export default function AuthPage() {
                         type={showConfirmPassword ? "text" : "password"}
                         placeholder="Confirme sua senha"
                         className="bg-gray-800/50 border-gray-700 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400 pr-10"
+                        value={form.confirmPassword}
+                        onChange={handleChange}
                       />
                       <button
                         type="button"
@@ -177,10 +313,15 @@ export default function AuthPage() {
                     <button
                       type="button"
                       className="text-sm text-gray-400 hover:text-purple-400 transition-colors font-light"
+                      // Aqui você pode implementar recuperação de senha se desejar
                     >
                       Esqueceu a senha?
                     </button>
                   </div>
+                )}
+
+                {error && (
+                  <div className="text-red-400 text-sm font-light text-center">{error}</div>
                 )}
 
                 <Button
@@ -194,6 +335,7 @@ export default function AuthPage() {
               <div className="mt-6 space-y-3">
                 <Button
                   type="button"
+                  onClick={handleGoogleAuth}
                   className="w-full bg-white/10 border border-gray-600 text-white hover:bg-white/20 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-400/10 transition-all duration-300 font-light py-3 flex items-center justify-center space-x-3"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -219,6 +361,7 @@ export default function AuthPage() {
 
                 <Button
                   type="button"
+                  onClick={handleAppleAuth}
                   className="w-full bg-white/10 border border-gray-600 text-white hover:bg-white/20 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-400/10 transition-all duration-300 font-light py-3 flex items-center justify-center space-x-3"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24">
