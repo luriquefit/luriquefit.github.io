@@ -1,11 +1,13 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+import Link from "next/link"
+import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Image from "next/image"
+import { ArrowRight } from "lucide-react"
 import { initializeApp } from "firebase/app"
 import { getAuth, onAuthStateChanged, User } from "firebase/auth"
 import { getFirestore, doc, getDoc } from "firebase/firestore"
@@ -102,11 +104,44 @@ export default function UserPage() {
     const dias = ["domingo", "segunda", "terca", "quarta", "quinta", "sexta", "sabado"];
     return dias[dayIndex];
   }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 2000)
+    return () => clearTimeout(timer)
+  }, [])
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center py-12 px-4">
+    <>
+      <AnimatePresence>
+        {isLoading && (
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
+          <Image
+            src="/images/flor-removebg-preview.png"
+            alt="Flor Loading"
+            width={64}
+            height={64}
+            className="animate-spin"
+            priority
+          />
+        </div>
+      )}
+    </AnimatePresence>
+
+    <div className="relative min-h-screen bg-black text-white flex flex-col items-center py-12 px-4">
+      <Link href="/" className="absolute top-6 right-6 z-10">
+        <motion.div
+          className="flex items-center space-x-2 text-neutral-400 hover:text-purple-400 transition-colors duration-300"
+          whileHover={{ x: 5 }}
+        >
+          <span className="font-light text-sm">Voltar ao Início</span>
+          <ArrowRight className="h-4 w-4" />
+        </motion.div>
+      </Link>
+
       <motion.h1
-        className="text-3xl md:text-4xl font-light mb-8 text-center text-white"
+        className="text-3xl md:text-4xl font-light mb-8 text-center text-white pt-8"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -178,5 +213,6 @@ export default function UserPage() {
         <p className="text-xs text-neutral-400/80 mt-2">Seu progresso de hidratação é salvo e reiniciado diariamente.</p>
       </motion.div>
     </div>
+        </>
   );
 }
